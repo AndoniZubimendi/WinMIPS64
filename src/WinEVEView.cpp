@@ -233,12 +233,12 @@ void CWinEVEView::OnLButtonDblClk(UINT nFlags, CPoint point)
 
 	if ((pDoc->cpu.cstat[bp]&1)==0)
 	{
-		pStatus->SetPaneText(0,"Setting Break-Point");
+		pStatus->SetPaneText(0,"Asignando Break-Point");
 		pDoc->cpu.cstat[bp]|=1;
 	}
 	else
 	{
-		pStatus->SetPaneText(0,"Clearing Break-Point");
+		pStatus->SetPaneText(0,"Eliminando Break-Point");
 		pDoc->cpu.cstat[bp]&=0xfe;
 	}
 	OnUpdate(this,0L,NULL);

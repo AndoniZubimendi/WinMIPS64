@@ -37,7 +37,7 @@ CChildFrame::~CChildFrame()
 {
 }
 
-static char *codetit="Code";
+static char *codetit="Código";
 
 BOOL CChildFrame::PreCreateWindow(CREATESTRUCT& cs)
 {

@@ -24,7 +24,7 @@ CStatChildFrm::~CStatChildFrm()
 {
 }
 
-static char *stattit="Statistics";
+static char *stattit="Estadisticas";
 
 BEGIN_MESSAGE_MAP(CStatChildFrm, CMDIChildWnd)
 	//{{AFX_MSG_MAP(CStatChildFrm)

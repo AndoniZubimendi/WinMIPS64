@@ -101,57 +101,57 @@ END
 
 IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
 BEGIN
-    POPUP "&File"
+    POPUP "&Archivo"
     BEGIN
-        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
-        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "E&xit",                       ID_APP_EXIT
+        MENUITEM "&Nuevo\tCtrl+N",              ID_FILE_NEW
+        MENUITEM "&Abrir...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "&Salir",                      ID_APP_EXIT
     END
-    POPUP "&View"
+    POPUP "&Ver"
     BEGIN
-        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
-        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "Barra de Herramien&tas",      ID_VIEW_TOOLBAR
+        MENUITEM "Barra de E&stado",            ID_VIEW_STATUS_BAR
     END
     POPUP "&Help"
     BEGIN
-        MENUITEM "&About WinMips...",           ID_APP_ABOUT
+        MENUITEM "&Acerca de WinMips...",       ID_APP_ABOUT
     END
 END
 
 IDR_WINEVETYPE MENU PRELOAD DISCARDABLE 
 BEGIN
-    POPUP "&File"
+    POPUP "&Archivo"
     BEGIN
-        MENUITEM "&Open      \tCtrl+O",         ID_FILE_OPEN
-        MENUITEM "&Reset  MIPS64 \tCtrl+R",     ID_FILE_RESET
-        MENUITEM "&Full Reset\tCtrl+F",         ID_FULL_RESET
-        MENUITEM "Reload\tF10",                 ID_RELOAD
-        MENUITEM "E&xit",                       ID_APP_EXIT
+        MENUITEM "&Abrir...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "&Resetear  MIPS64 \tCtrl+R",  ID_FILE_RESET
+        MENUITEM "Reset &Completo\tCtrl+F",     ID_FULL_RESET
+        MENUITEM "Re&cargar\tF10",              ID_RELOAD
+        MENUITEM "&Salir",                      ID_APP_EXIT
     END
-    POPUP "E&xecute"
+    POPUP "E&jecutar"
     BEGIN
-        MENUITEM "Single Cycle \tF7",           ID_EXECUTE_SINGLE
-        MENUITEM "Multi Cycle\tF8",             ID_EXECUTE_MULTICYCLE
-        MENUITEM "Run to\tF4",                  ID_EXECUTE_RUNTO
-        MENUITEM "Stop",                        ID_EXECUTE_STOP
+        MENUITEM "&Paso a Paso \tF7",           ID_EXECUTE_SINGLE
+        MENUITEM "Multi &Ciclo\tF8",            ID_EXECUTE_MULTICYCLE
+        MENUITEM "Ejecutar &Hasta\tF4",         ID_EXECUTE_RUNTO
+        MENUITEM "&Detener",                    ID_EXECUTE_STOP
     END
-    POPUP "&Configure"
+    POPUP "&Configuración"
     BEGIN
-        MENUITEM "&Architecture\tCtrl+A",       ID_FILE_ARCH
-        MENUITEM "Multi-S&tep\tCtrl+T",         ID_FILE_MULTI
-        MENUITEM "Enable &Forwarding",          ID_FILE_FORWARDING, CHECKED
-        MENUITEM "Enable &Branch Target Buffer", ID_BTB
-        MENUITEM "Enable &Delay Slot",          ID_FILE_DELAY_SLOT
+        MENUITEM "&Arquitectura\tCtrl+A",       ID_FILE_ARCH
+        MENUITEM "Multi-P&aso\tCtrl+T",         ID_FILE_MULTI
+        MENUITEM "Activar &Forwarding",         ID_FILE_FORWARDING, CHECKED
+        MENUITEM "Activar &Branch Target Buffer", ID_BTB
+        MENUITEM "Activar &Delay Slot",         ID_FILE_DELAY_SLOT
     END
-    POPUP "&Window"
+    POPUP "&Ventana"
     BEGIN
-        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
-        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
-        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+        MENUITEM "&Cascada",                    ID_WINDOW_CASCADE
+        MENUITEM "&Mosaico",                    ID_WINDOW_TILE_HORZ
+        MENUITEM "&Acomodar Iconos",            ID_WINDOW_ARRANGE
     END
-    POPUP "&Help"
+    POPUP "A&yuda"
     BEGIN
-        MENUITEM "&About WinMIPS64...",         ID_APP_ABOUT
+        MENUITEM "&Acerca de WinMIPS64...",     ID_APP_ABOUT
     END
 END
 
@@ -194,21 +194,21 @@ END
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 187, 101
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 187, 79
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About WinMips64"
+CAPTION "Acerca de WinMips64"
 FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "WinMIPS64  V1.57",IDC_STATIC,35,15,75,8,SS_NOPREFIX
-    LTEXT           "Mike Scott 2003-2012\nSchool of Computing\nDublin City University\nIreland\nmike@computing.dcu.ie\nFor Documentation see \nhttp://www.computing.dcu.ie/~mike/winmips64.html",
-                    IDC_STATIC,10,35,170,60
+    LTEXT           "Mike Scott 2003-2012\nDublin, Ireland\nmscott@indigo.ie\nWebsite: http://indigo.ie/~mscott",
+                    IDC_STATIC,10,35,170,37
     DEFPUSHBUTTON   "OK",IDOK,135,10,32,17,WS_GROUP
-    ICON            IDR_MAINFRAME,IDC_STATIC,10,10,20,20
+    ICON            IDR_MAINFRAME,IDC_STATIC,10,10,21,20
 END
 
 IDD_REGISTER DIALOG DISCARDABLE  0, 0, 112, 55
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Register"
+CAPTION "Registro"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,30,35,55,14
@@ -216,46 +216,46 @@ BEGIN
     LTEXT           "",IDC_REGNAME,10,10,20,15,SS_CENTERIMAGE
 END
 
-IDD_ARCHITECTURE DIALOGEX 0, 0, 132, 146
+IDD_ARCHITECTURE DIALOGEX 0, 0, 162, 146
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Set Architecture"
+CAPTION "Configurar Arquitectura"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,5,110,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,65,110,50,14
-    EDITTEXT        IDC_CODEMEM,95,10,20,15,ES_CENTER | ES_AUTOHSCROLL,
+    DEFPUSHBUTTON   "OK",IDOK,35,110,50,14
+    PUSHBUTTON      "Cancelar",IDCANCEL,95,110,50,14
+    EDITTEXT        IDC_CODEMEM,125,10,20,15,ES_CENTER | ES_AUTOHSCROLL,
                     WS_EX_RIGHT
-    RTEXT           "Code Address Bus",IDC_STATIC,15,10,70,10
-    EDITTEXT        IDC_DATAMEM,95,30,20,15,ES_CENTER | ES_AUTOHSCROLL,
+    RTEXT           "Bus de Direcciones de Código",IDC_STATIC,15,10,100,10
+    EDITTEXT        IDC_DATAMEM,125,30,20,15,ES_CENTER | ES_AUTOHSCROLL,
                     WS_EX_RIGHT
-    RTEXT           "Data Address Bus",IDC_STATIC,15,30,69,10
-    LTEXT           "Warning: This will cause a reset!",IDC_STATIC,10,130,
-                    110,15
-    RTEXT           "Multiplier Latency",IDC_STATIC,15,70,70,10
-    RTEXT           "FP Addition Latency",IDC_STATIC,15,50,70,10
-    RTEXT           "Division Latency",IDC_STATIC,15,90,70,10
-    EDITTEXT        IDC_FPAL,95,50,20,15,ES_CENTER | ES_AUTOHSCROLL,
+    RTEXT           "Bus de Direcciones de Datos",IDC_STATIC,15,30,100,10
+    LTEXT           "Advertencia: Esto causara un Reset!",IDC_STATIC,10,130,
+                    160,15
+    RTEXT           "Latencia del Multiplicador",IDC_STATIC,15,70,100,10
+    RTEXT           "Latencia del Sumador PF",IDC_STATIC,15,50,100,10
+    RTEXT           "Latencia del Divisor",IDC_STATIC,15,90,100,10
+    EDITTEXT        IDC_FPAL,125,50,20,15,ES_CENTER | ES_AUTOHSCROLL,
                     WS_EX_RIGHT
-    EDITTEXT        IDC_FPML,95,70,20,15,ES_CENTER | ES_AUTOHSCROLL,
+    EDITTEXT        IDC_FPML,125,70,20,15,ES_CENTER | ES_AUTOHSCROLL,
                     WS_EX_RIGHT
-    EDITTEXT        IDC_FPDL,95,90,20,15,ES_CENTER | ES_AUTOHSCROLL,
+    EDITTEXT        IDC_FPDL,125,90,20,15,ES_CENTER | ES_AUTOHSCROLL,
                     WS_EX_RIGHT
 END
 
 IDD_MULTI_CYCLE DIALOG DISCARDABLE  0, 0, 72, 47
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Multi-Cycle"
+CAPTION "Multi-Ciclo"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,10,25,55,14
     EDITTEXT        IDC_CYCLES,35,5,30,15,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_NUMBER
-    RTEXT           "Cycles=",IDC_STATIC,5,5,25,15
+    RTEXT           "Ciclos=",IDC_STATIC,5,5,25,15
 END
 
 IDD_DATA DIALOG DISCARDABLE  0, 0, 112, 55
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Change Data Memory"
+CAPTION "Cambiar Memoria de Datos"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,30,35,55,14
@@ -323,7 +323,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 180
         TOPMARGIN, 7
-        BOTTOMMARGIN, 94
+        BOTTOMMARGIN, 72
     END
 
     IDD_REGISTER, DIALOG
@@ -375,7 +375,7 @@ END
 STRINGTABLE PRELOAD DISCARDABLE 
 BEGIN
     AFX_IDS_APP_TITLE       "WinMips"
-    AFX_IDS_IDLEMESSAGE     "Ready"
+    AFX_IDS_IDLEMESSAGE     "Listo"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -390,11 +390,11 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_FILE_NEW             "Create a new document\nNew"
-    ID_FILE_OPEN            "Open an existing document\nOpen"
-    ID_FILE_CLOSE           "Close the active document\nClose"
-    ID_FILE_SAVE            "Save the active document\nSave"
-    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_NEW             "Crear un nuevo docuemnto\nNuevo"
+    ID_FILE_OPEN            "Abrir un documento existente\nAbrir"
+    ID_FILE_CLOSE           "Cerrar el documento en uso\nCerrar"
+    ID_FILE_SAVE            "Guardar el documento en uso\nGuardar"
+    ID_FILE_SAVE_AS         "Guardar el documento en uso con otro nombre\nGuardar como"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -539,7 +539,7 @@ IDI_ICON7               ICON    DISCARDABLE     "res\\icon7.ico"
 
 IDD_DOUBLE DIALOG DISCARDABLE  0, 0, 112, 55
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "FP Register"
+CAPTION "Registro PF"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,30,35,55,14
@@ -549,7 +549,7 @@ END
 
 IDD_FP DIALOG DISCARDABLE  0, 0, 112, 55
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Change Data memory"
+CAPTION "Cambiar Memoria de Datos"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,30,35,50,14
