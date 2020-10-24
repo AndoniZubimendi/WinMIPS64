@@ -1012,7 +1012,7 @@ int CWinEVEDoc::openfile(CString fname)
 	}
 	if (res==1)
 	{
-		char txt[300];
+		char txt[512];
 		sprintf(txt,"No se pudo abrir el archivo %s",fname);
 		AfxMessageBox(txt,MB_OK|MB_ICONEXCLAMATION);
 		return res;
@@ -2040,7 +2040,7 @@ void CWinEVEDoc::OnUpdateFullReset(CCmdUI* pCmdUI)
 int CWinEVEDoc::OnReload() 
 { // reload last file
 	int res;
-	char txt[100];
+	char txt[512];
 	CMainFrame* pFrame=(CMainFrame*) AfxGetApp()->m_pMainWnd;
 	CStatusBar* pStatus=&pFrame->m_wndStatusBar;
 	res=openfile(lastfile);
