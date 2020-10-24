@@ -142,7 +142,7 @@ CWinEVEDoc* CRegView::GetDocument() // non-debug version is inline
 /////////////////////////////////////////////////////////////////////////////
 // CRegView message handlers
 
-void CRegView::OnLButtonDblClk(UINT nFlags, CPoint point) 
+void CRegView::OnLButtonDblClk(UINT /* nFlags */, CPoint point) 
 {
 	DOUBLE64 db;
 	CRegDialog dlg;
@@ -219,7 +219,7 @@ void CRegView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CScrollView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-void CRegView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CRegView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {
 
 	CSize sizeTotal;

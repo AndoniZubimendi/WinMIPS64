@@ -107,7 +107,7 @@ CWinEVEDoc* CInstructView::GetDocument() // non-debug version is inline
 /////////////////////////////////////////////////////////////////////////////
 // CInstructView message handlers
 
-void CInstructView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CInstructView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {
 	// TODO: Add your specialized code here and/or call the base class
 	CPoint ps;

@@ -69,3 +69,7 @@ V1.56
 V1.57
 - Fixed ORI/ANDI/XORI
 
+V1.57b
+- Spanish translation
+- Fixed buffer overflow when loading the last file opened
+- Fixed Branch Target Buffer and recursive functions

@@ -704,7 +704,7 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 				else
 				{
 					history[i].status[cc].stage=IFETCH;
-					history[i].status[cc].cause=result->IF;
+					history[i].status[cc].cause= (BYTE) result->IF;
 				}
 			}
 			else 
@@ -746,7 +746,7 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			if (!passed) 
 			{
 				history[i].status[cc].stage=IDECODE;
-				history[i].status[cc].cause=result->ID;
+				history[i].status[cc].cause=(BYTE) result->ID;
 			}
 			break;
 		case INTEX:
@@ -758,7 +758,7 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			else
 			{
 				history[i].status[cc].stage=INTEX;
-				history[i].status[cc].cause=result->EX;
+				history[i].status[cc].cause=(BYTE) result->EX;
 			}
 			break;
 
@@ -773,8 +773,8 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 				else
 				{
 					history[i].status[cc].stage=MULEX;
-					history[i].status[cc].substage=substage;
-					history[i].status[cc].cause=result->MULTIPLIER[MUL_LATENCY-1];
+					history[i].status[cc].substage= (BYTE) substage;
+					history[i].status[cc].cause= (BYTE) result->MULTIPLIER[MUL_LATENCY-1];
 				}
 			}
 			else
@@ -782,14 +782,14 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 				if (pipe->m[substage+1].active && pipe->m[substage+1].IR==previous)
 				{
 					history[i].status[cc].stage=MULEX;
-					history[i].status[cc].substage=substage+1;
+					history[i].status[cc].substage= (BYTE) (substage + 1);
 					history[i].status[cc].cause=0;
 				}
 				else 
 				{
 					history[i].status[cc].stage=MULEX;
-					history[i].status[cc].substage=substage;
-					history[i].status[cc].cause=result->MULTIPLIER[substage];
+					history[i].status[cc].substage=(BYTE) substage;
+					history[i].status[cc].cause=(BYTE) result->MULTIPLIER[substage];
 				}
 			}
 			break;
@@ -805,8 +805,8 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 				else
 				{
 					history[i].status[cc].stage=ADDEX;
-					history[i].status[cc].substage=substage;
-					history[i].status[cc].cause=result->ADDER[ADD_LATENCY-1];
+					history[i].status[cc].substage=(BYTE) substage;
+					history[i].status[cc].cause=(BYTE) result->ADDER[ADD_LATENCY-1];
 				}
 			}
 			else
@@ -814,14 +814,14 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 				if (pipe->a[substage+1].active && pipe->a[substage+1].IR==previous)
 				{
 					history[i].status[cc].stage=ADDEX;
-					history[i].status[cc].substage=substage+1;
+					history[i].status[cc].substage=(BYTE) (substage + 1);
 					history[i].status[cc].cause=0;
 				}
 				else 
 				{
 					history[i].status[cc].stage=ADDEX;
-					history[i].status[cc].substage=substage;
-					history[i].status[cc].cause=result->ADDER[substage];
+					history[i].status[cc].substage=(BYTE) substage;
+					history[i].status[cc].cause= (BYTE) result->ADDER[substage];
 				}
 			}
 			break;
@@ -834,7 +834,7 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			else
 			{
 				history[i].status[cc].stage=DIVEX;
-				history[i].status[cc].cause=result->DIVIDER;
+				history[i].status[cc].cause=(BYTE) result->DIVIDER;
 			}
 			break;
 
@@ -847,7 +847,7 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			else
 			{
 				history[i].status[cc].stage=MEMORY;
-				history[i].status[cc].cause=result->MEM;
+				history[i].status[cc].cause=(BYTE) result->MEM;
 			}
 			break;
 
@@ -926,7 +926,8 @@ void CWinEVEDoc::OnExecuteMulticycle()
 	simulation_running=TRUE;
 	for (i=0;i<multi-1;i++)
 	{
-		if ((status=one_cycle(&pipe,&cpu,FALSE))) break;
+		status = one_cycle(&pipe,&cpu,FALSE);
+		if (status) break;
 	}
 	if (status==0) status= one_cycle(&pipe,&cpu,TRUE); // show status after last one.
 
@@ -962,7 +963,8 @@ void CWinEVEDoc::OnExecuteRunto()
 			::DispatchMessage(&message);
 		}
 		lapsed++;
-		if ((status=one_cycle(&pipe,&cpu,FALSE))) break;
+		status = one_cycle(&pipe,&cpu,FALSE);
+		if (status) break;
 	} while (stalls || ((cpu.cstat[cpu.PC]&1)==0 && cpu.status!=HALTED && simulation_running));
 	simulation_running=FALSE;
 	if (status==WAITING_FOR_INPUT) 
@@ -1156,7 +1158,7 @@ int CWinEVEDoc::instruction(char *start)
     if (ptr==NULL) return (-1); 
     while (i<10 && !delimiter(*ptr)) 
     {
-        text[i++]=tolower(*ptr);
+        text[i++]= (unsigned char) tolower(*ptr);
         ptr++;
     }
     if (i>9) return (-1);
@@ -1261,7 +1263,7 @@ BOOL CWinEVEDoc::directive(int pass,char *ptr,char *line)
                         if (*ptr=='n') ch='\n';
                         else ch=*ptr;
 						cpu.dstat[dataptr]=WRITTEN;
-						cpu.data[dataptr++]= ch;
+						cpu.data[dataptr++]= (BYTE) ch;
                         bs=FALSE;
                     }
                     else
@@ -1621,7 +1623,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
     return 1;
 }
 
-int CWinEVEDoc::second_pass(char *line,int lineptr)
+int CWinEVEDoc::second_pass(char *line,int /* lineptr */)
 {
     WORD32 w,byte;
     WORD32 op,code_word=0;
