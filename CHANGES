@@ -1,0 +1,67 @@
+Update History:
+
+V1.12
+- displays the currently loaded file on status line (press F10).
+- remembers last folder used for input.
+
+V1.13
+- Bug fix - registers modified by double-clicking stay modified.
+- Integer dmul and ddiv instructions disabled (they make many tutorial problems too easy!)
+
+V1.14
+- Support for network installations
+- Various minor bug -fixes
+
+V1.15
+- System far less tolerant of silly syntax errors
+- Open file name appears on title bar.
+
+V1.20
+- Some fonts fixed
+- Possibility of WAR hazards for FP instructions recognized
+
+V1.21
+- F5 removed
+- Bug in Cycles window fixed
+
+V1.30
+- Branch Target Buffer option added
+- Minor bugs eliminated
+- More example programs
+
+V1.31
+- Long lines generate an error
+- Larger data area allowed
+
+V1.32
+- Standard MIPS pseudo-names for registers now allowed
+- .. so $zero for r0, $t0 for r8 etc. Also $6 for r6.
+- # is now acceptable as well as ; to indicate a comment
+
+V1.40
+- New Dumb Terminal I/O capability – New Terminal Window
+- New example program testio.s – demos output capability
+- Graphics output capability
+
+V1.50
+- 10 new instructions!
+- Integer dmul and ddiv instructions restored
+
+V1.51
+· Some bug fixes
+
+V1.52
+- Errors on pass 2 now highlighted in red.
+- Viewing FP memory no longer changes it
+
+V1.53
+- Some more bug fixes
+
+V1.54
+- Yet more bug fixes
+
+V1.55
+- LWU/LUI Instructions fixed
+
+V1.56
+- Some WAW error fixed

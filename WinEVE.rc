@@ -1,0 +1,612 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\WinEVE.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Eve sim.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About WinMips...",           ID_APP_ABOUT
+    END
+END
+
+IDR_WINEVETYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open      \tCtrl+O",         ID_FILE_OPEN
+        MENUITEM "&Reset  MIPS64 \tCtrl+R",     ID_FILE_RESET
+        MENUITEM "&Full Reset\tCtrl+F",         ID_FULL_RESET
+        MENUITEM "Reload\tF10",                 ID_RELOAD
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "E&xecute"
+    BEGIN
+        MENUITEM "Single Cycle \tF7",           ID_EXECUTE_SINGLE
+        MENUITEM "Multi Cycle\tF8",             ID_EXECUTE_MULTICYCLE
+        MENUITEM "Run to\tF4",                  ID_EXECUTE_RUNTO
+        MENUITEM "Stop",                        ID_EXECUTE_STOP
+    END
+    POPUP "&Configure"
+    BEGIN
+        MENUITEM "&Architecture\tCtrl+A",       ID_FILE_ARCH
+        MENUITEM "Multi-S&tep\tCtrl+T",         ID_FILE_MULTI
+        MENUITEM "Enable &Forwarding",          ID_FILE_FORWARDING, CHECKED
+        MENUITEM "Enable &Branch Target Buffer", ID_BTB
+        MENUITEM "Enable &Delay Slot",          ID_FILE_DELAY_SLOT
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About WinMIPS64...",         ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "A",            ID_FILE_ARCH,           VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_FULL_RESET,          VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_FILE_RESET,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_FILE_MULTI,          VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F10,         ID_RELOAD,              VIRTKEY, NOINVERT
+    VK_F4,          ID_EXECUTE_RUNTO,       VIRTKEY, NOINVERT
+    VK_F5,          ID_EXECUTE_STOP,        VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_F7,          ID_EXECUTE_SINGLE,      VIRTKEY, NOINVERT
+    VK_F8,          ID_EXECUTE_MULTICYCLE,  VIRTKEY, NOINVERT
+    VK_F9,          ID_EXECUTE_INTERRUPT,   VIRTKEY, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 187, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About WinMips64"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "WinMIPS64  V1.56",IDC_STATIC,35,15,75,8,SS_NOPREFIX
+    LTEXT           "Mike Scott 2003-2012\nSchool of Computing\nDublin City University\nIreland\nmike@computing.dcu.ie\nFor Documentation see \nhttp://www.computing.dcu.ie/~mike/winmips64.html",
+                    IDC_STATIC,10,35,170,60
+    DEFPUSHBUTTON   "OK",IDOK,135,10,32,17,WS_GROUP
+    ICON            IDR_MAINFRAME,IDC_STATIC,10,10,20,20
+END
+
+IDD_REGISTER DIALOG DISCARDABLE  0, 0, 112, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Register"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,35,55,14
+    EDITTEXT        IDC_REG,30,10,80,15,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "",IDC_REGNAME,10,10,20,15,SS_CENTERIMAGE
+END
+
+IDD_ARCHITECTURE DIALOGEX 0, 0, 132, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set Architecture"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,5,110,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,65,110,50,14
+    EDITTEXT        IDC_CODEMEM,95,10,20,15,ES_CENTER | ES_AUTOHSCROLL,
+                    WS_EX_RIGHT
+    RTEXT           "Code Address Bus",IDC_STATIC,15,10,70,10
+    EDITTEXT        IDC_DATAMEM,95,30,20,15,ES_CENTER | ES_AUTOHSCROLL,
+                    WS_EX_RIGHT
+    RTEXT           "Data Address Bus",IDC_STATIC,15,30,69,10
+    LTEXT           "Warning: This will cause a reset!",IDC_STATIC,10,130,
+                    110,15
+    RTEXT           "Multiplier Latency",IDC_STATIC,15,70,70,10
+    RTEXT           "FP Addition Latency",IDC_STATIC,15,50,70,10
+    RTEXT           "Division Latency",IDC_STATIC,15,90,70,10
+    EDITTEXT        IDC_FPAL,95,50,20,15,ES_CENTER | ES_AUTOHSCROLL,
+                    WS_EX_RIGHT
+    EDITTEXT        IDC_FPML,95,70,20,15,ES_CENTER | ES_AUTOHSCROLL,
+                    WS_EX_RIGHT
+    EDITTEXT        IDC_FPDL,95,90,20,15,ES_CENTER | ES_AUTOHSCROLL,
+                    WS_EX_RIGHT
+END
+
+IDD_MULTI_CYCLE DIALOG DISCARDABLE  0, 0, 72, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Multi-Cycle"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,10,25,55,14
+    EDITTEXT        IDC_CYCLES,35,5,30,15,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    RTEXT           "Cycles=",IDC_STATIC,5,5,25,15
+END
+
+IDD_DATA DIALOG DISCARDABLE  0, 0, 112, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Change Data Memory"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,35,55,14
+    EDITTEXT        IDC_CONTENTS,30,10,80,15,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "",IDC_LOCATION,10,10,20,15,SS_CENTERIMAGE
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "ESIM MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "ESIM\0"
+            VALUE "LegalCopyright", "Copyright Aria Research (c) 1999,2000\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "WinEVE.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "ESIM Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+    END
+
+    IDD_REGISTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 105
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_ARCHITECTURE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 125
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_MULTI_CYCLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 65
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+
+    IDD_DATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 105
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "WinMIPS64 - MIPS64 Processor Simulator"
+    IDR_WINEVETYPE          "\nWinMIPS64\nWinMIPS64\n\n\nWinMIPS64.Document\nWinMIPS64 Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "WinMips"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EXECUTE_SINGLE       "Single step through Cycles\nSingle-Cycle"
+    ID_EXECUTE_SINGLEINSTRUCTION 
+                            "Single step through instructions\nSingle Instruction"
+    ID_EXECUTE_RUNTO        "Run to break-point\nRun"
+    ID_FILE_RESET           "Reset the Processor\nReset"
+    ID_FILE_MEMORY          "Change amount of Code and/or Data memory\nChange Memory"
+    ID_EXECUTE_MULTICYCLE   "Execute Multiple Cycles\nMulti-Cycle"
+    ID_FILE_MULTI           "Set multi-cycle step size\nMulti-cycle step"
+    ID_EXECUTE_STOP         "Stop Simulation\nStop"
+    ID_EXECUTE_INTERRUPT    "Generate an Interrupt\nInterrupt"
+    ID_FULL_RESET           "Full reset of MIPS64\nFull Reset"
+    ID_REFRESH              "Reload"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_RELOAD               "Reload the working file\nReload"
+    ID_CONFIGURE_WORDLENGTH "Set Word-Length in bits\nWordlength"
+    ID_FILE_ARCH            "Set Architecture"
+    ID_FILE_DELAY_SLOT      "Enable Delay Slot"
+    ID_FILE_FORWARDING      "Enable Forwarding"
+    ID_BTB                  "Enable Branch Target Buffer"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Ireland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENI)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_EIRE
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_ICON2               ICON    DISCARDABLE     "res\\icon2.ico"
+IDI_ICON3               ICON    DISCARDABLE     "res\\icon3.ico"
+IDI_ICON4               ICON    DISCARDABLE     "res\\icon4.ico"
+IDI_ICON5               ICON    DISCARDABLE     "res\\icon5.ico"
+IDI_ICON6               ICON    DISCARDABLE     "res\\icon6.ico"
+IDI_ICON7               ICON    DISCARDABLE     "res\\icon7.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DOUBLE DIALOG DISCARDABLE  0, 0, 112, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FP Register"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,35,55,14
+    EDITTEXT        IDC_FREG,30,10,80,15,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "",IDC_FREGNAME,10,10,20,15
+END
+
+IDD_FP DIALOG DISCARDABLE  0, 0, 112, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Change Data memory"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,30,35,50,14
+    EDITTEXT        IDC_CONTENTS,30,10,80,15,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "",IDC_LOCATION,5,10,20,15,SS_CENTERIMAGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DOUBLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 105
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_FP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 105
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Ireland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\WinEVE.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
