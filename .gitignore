@@ -1,6 +1,7 @@
 WinEsim.plg
 WinEsim.ncb
 WinEVE.aps
+/*.opt
 Release/
 Debug/
 winmips64.ini
