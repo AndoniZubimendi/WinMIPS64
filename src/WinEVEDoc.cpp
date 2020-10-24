@@ -928,7 +928,7 @@ void CWinEVEDoc::OnExecuteMulticycle()
 	{
 		if ((status=one_cycle(&pipe,&cpu,FALSE))) break;
 	}
-	if (status=0) status= one_cycle(&pipe,&cpu,TRUE); // show status after last one.
+	if (status==0) status= one_cycle(&pipe,&cpu,TRUE); // show status after last one.
 
 	if (status==WAITING_FOR_INPUT)
 	{
