@@ -226,7 +226,7 @@ CWinEVEDoc* CPipeView::GetDocument() // non-debug version is inline
 /////////////////////////////////////////////////////////////////////////////
 // CPipeView message handlers
 
-void CPipeView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo) 
+void CPipeView::OnPrepareDC(CDC* pDC, CPrintInfo* /* pInfo */) 
 {
 	CRect rectClient;
 	// TODO: Add your specialized code here and/or call the base class
@@ -251,7 +251,7 @@ void CPipeView::OnInitialUpdate()
 	
 }
 
-void CPipeView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CPipeView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {
 	if (lHint==2) return;
 	InvalidateRect(NULL);

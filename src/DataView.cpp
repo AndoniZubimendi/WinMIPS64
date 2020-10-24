@@ -120,7 +120,7 @@ void CDataView::OnInitialUpdate()
 					DEFAULT_QUALITY,DEFAULT_PITCH|FF_MODERN,"Courier New");		
 }
 
-void CDataView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CDataView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {	
 	CWinEVEDoc* pDoc=GetDocument();
 	CSize sizeTotal;
@@ -135,7 +135,7 @@ void CDataView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	InvalidateRect(NULL);	
 }
 
-void CDataView::OnLButtonDblClk(UINT nFlags, CPoint point) 
+void CDataView::OnLButtonDblClk(UINT /* nFlags */, CPoint point) 
 {
 	CDataDialog dlg;
 	unsigned int addr=first+point.y/14;
@@ -184,7 +184,7 @@ void CDataView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CScrollView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-void CDataView::OnRButtonDblClk(UINT nFlags, CPoint point) 
+void CDataView::OnRButtonDblClk(UINT /* nFlags */, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
 	

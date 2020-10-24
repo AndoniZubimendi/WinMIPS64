@@ -180,7 +180,7 @@ void CWinEVEView::OnInitialUpdate()
 
  }	
 
-void CWinEVEView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CWinEVEView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {
 	CWinEVEDoc* pDoc=GetDocument();
 	WORD32 pcline=pDoc->cpu.PC/4;
@@ -220,7 +220,7 @@ void CWinEVEView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	
 }
 
-void CWinEVEView::OnLButtonDblClk(UINT nFlags, CPoint point) 
+void CWinEVEView::OnLButtonDblClk(UINT /* nFlags */, CPoint point) 
 {
 	CWinEVEDoc* pDoc=GetDocument();
 

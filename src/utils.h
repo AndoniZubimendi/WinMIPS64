@@ -1,7 +1,7 @@
-#include "mytypes.h"
-
 #ifndef UTILS
 #define UTILS
+
+#include "mytypes.h"
 
 extern int bits(int);
 extern int sprintnbits(char *,WORD32,int);

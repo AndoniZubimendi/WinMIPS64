@@ -162,7 +162,7 @@ CWinEVEDoc* CCyclesView::GetDocument() // non-debug version is inline
 /////////////////////////////////////////////////////////////////////////////
 // CCyclesView message handlers
 
-void CCyclesView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CCyclesView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {
 	CPoint ps;
 	CWinEVEDoc* pDoc=GetDocument();

@@ -54,7 +54,7 @@ BOOL CCyclesChildFrm::PreCreateWindow(CREATESTRUCT& cs)
 	return CMDIChildWnd::PreCreateWindow(cs);
 }
 
-BOOL CCyclesChildFrm::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext) 
+BOOL CCyclesChildFrm::OnCreateClient(LPCREATESTRUCT, CCreateContext* pContext) 
 {
 	BOOL outcome=split.CreateStatic(this,1,2,WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL);
 	split.CreateView(0,0,RUNTIME_CLASS(CInstructView),CSize(0,0),pContext);

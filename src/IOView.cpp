@@ -287,7 +287,7 @@ void CIOView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo)
 	CScrollView::OnPrepareDC(pDC, pInfo);
 }
 
-void CIOView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CIOView::OnUpdate(CView* /* pSender */, LPARAM /* lHint */, CObject* /* pHint */) 
 {
 	// TODO: Add your specialized code here and/or call the base class
 	CWinEVEDoc* pDoc = GetDocument();
@@ -322,7 +322,7 @@ void CIOView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if (pDoc->cpu.keyboard==2)
 	{ // just take one character, do not echo it.
 
-		pDoc->cpu.mm[8] = nChar;
+		pDoc->cpu.mm[8] = (BYTE) nChar;
 		pDoc->cpu.keyboard=0;
 		pStatus->SetPaneText(0,"Ready");
 		if (pDoc->restart) OnCommand(ID_EXECUTE_RUNTO,0);
@@ -372,8 +372,8 @@ void CIOView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 			else
 			{
-				line+=nChar;
-				pDoc->cpu.Terminal+=nChar;
+				line+= (BYTE) nChar;
+				pDoc->cpu.Terminal+= (BYTE) nChar;
 				pDoc->cpu.ncols++;
 			}
 			if (caretcount==1)

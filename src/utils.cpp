@@ -25,9 +25,12 @@ int sprintnbits(char *txt,WORD32 addr,int n)
 	return nbytes;
 }
 
+
 SIGNED16 pack16(BYTE *b)
 { /* pack bytes into 16-bit half-word */
-	return ((SIGNED16)b[1]<<8) | (SIGNED16)b[0];
+	SIGNED16 res = (SIGNED16) b[0];
+	res |= (SIGNED16) (b[1] << 8);
+	return res;
 }
 
 void unpack16(SIGNED16 a,BYTE *b)

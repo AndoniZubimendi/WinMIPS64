@@ -197,7 +197,7 @@ void CStatView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CScrollView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-void CStatView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) 
+void CStatView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {
 	if (lHint==2) return;
 	InvalidateRect(NULL);
