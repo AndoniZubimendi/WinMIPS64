@@ -73,3 +73,6 @@ V1.57b
 - Spanish translation
 - Fixed buffer overflow when loading the last file opened
 - Fixed Branch Target Buffer and recursive functions
+
+V1.58
+- Fixed structural stalls not added when they appear on ID

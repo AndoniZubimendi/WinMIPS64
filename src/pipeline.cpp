@@ -667,7 +667,7 @@ static int ID(pipeline *pipe,processor *cpu,BOOL forwarding,BOOL branch_target_b
             case F_DIV_D:
 			case R_DDIV:
 			case R_DDIVU:
-                if (pipe->div.active) return STRUCTURAL;
+                if (pipe->div.active) return STALLED;
 				if (already_target(pipe,ins.rs)) {*rawreg=ins.rs; return RAW;}
 				if (already_target(pipe,ins.rt)) {*rawreg=ins.rt; return RAW;}
 				if (already_target(pipe,ins.rd)) {*rawreg=ins.rd; return WAW;}

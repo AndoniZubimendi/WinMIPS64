@@ -520,6 +520,11 @@ void CWinEVEDoc::process_result(RESULT *result,BOOL show)
 
 	if (result->MEM!=RAW)
 	{
+		if (result->ID==STALLED)
+		{
+			structural_stalls++;
+			strcat(txt,"  Atasco Estructural en ID");
+		}
 		if (result->EX==STALLED)
 		{
 			structural_stalls++;
@@ -676,6 +681,7 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 
 	if (result->MEM!=RAW)
 	{
+		if (result->ID==STALLED) result->ID=STRUCTURAL;
 		if (result->EX==STALLED) result->EX=STRUCTURAL;
 		if (result->DIVIDER==STALLED) result->DIVIDER=STRUCTURAL;
 		if (result->MULTIPLIER[MUL_LATENCY-1]==STALLED) result->MULTIPLIER[MUL_LATENCY-1]=STRUCTURAL;
