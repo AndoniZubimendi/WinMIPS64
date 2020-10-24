@@ -1207,13 +1207,13 @@ static int EX_INT(pipeline *pipe,processor *cpu,BOOL forwarding,int *rawreg)
             pipe->ex_mem.ALUOutput = fpA.u + ins.Imm;
             break;
         case I_ANDI:
-            pipe->ex_mem.ALUOutput = fpA.u & ins.Imm;
+            pipe->ex_mem.ALUOutput = fpA.u & (ins.Imm & 0xffff);
             break;
         case I_ORI:
-            pipe->ex_mem.ALUOutput = fpA.u | ins.Imm;
+            pipe->ex_mem.ALUOutput = fpA.u | (ins.Imm & 0xffff);
             break;
         case I_XORI:
-            pipe->ex_mem.ALUOutput = fpA.u ^ ins.Imm;
+            pipe->ex_mem.ALUOutput = fpA.u ^ (ins.Imm & 0xffff);
             break;
         case I_SLTI:
             if (fpA.s < ins.Imm) pipe->ex_mem.ALUOutput=1;

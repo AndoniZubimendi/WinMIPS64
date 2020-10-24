@@ -65,3 +65,7 @@ V1.55
 
 V1.56
 - Some WAW error fixed
+
+V1.57
+- Fixed ORI/ANDI/XORI
+

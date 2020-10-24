@@ -199,7 +199,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About WinMips64"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "WinMIPS64  V1.56",IDC_STATIC,35,15,75,8,SS_NOPREFIX
+    LTEXT           "WinMIPS64  V1.57",IDC_STATIC,35,15,75,8,SS_NOPREFIX
     LTEXT           "Mike Scott 2003-2012\nSchool of Computing\nDublin City University\nIreland\nmike@computing.dcu.ie\nFor Documentation see \nhttp://www.computing.dcu.ie/~mike/winmips64.html",
                     IDC_STATIC,10,35,170,60
     DEFPUSHBUTTON   "OK",IDOK,135,10,32,17,WS_GROUP
