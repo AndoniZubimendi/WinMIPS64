@@ -803,7 +803,7 @@ static int ID(pipeline *pipe,processor *cpu,BOOL forwarding,BOOL branch_target_b
 
 	status=OK;
 
-	if (branch_target_buffer && predictable)
+	if (branch_target_buffer && predictable && !pipe->if_id.active)
 	{
 		if (branch_status==BRANCH_TAKEN)
 		{
