@@ -74,7 +74,7 @@ void CRegView::OnDraw(CDC* pDC)
 		if (source<=NOT_AVAILABLE) 
 			pDC->SetTextColor(GREY);
 
-		sprintf(txt,"R%d=  ",i);
+		registerName(i, txt, pDoc->registers_as_numbers);
 		sprintword(&txt[5],pDoc->cpu.rreg[i].val);
 
 		pDC->TextOut(0,i*14,txt);
@@ -185,7 +185,7 @@ void CRegView::OnLButtonDblClk(UINT /* nFlags */, CPoint point)
 //		sprintf(txt,"%16I64x",pDoc->cpu.rreg[reg].val);
 		sprintword(txt,pDoc->cpu.rreg[reg].val);
 		dlg.m_reg=txt;
-		sprintf(txt,"R%d=",reg);
+		registerName(reg, txt, pDoc->registers_as_numbers);
 		dlg.m_name=txt;
 		dlg.DoModal();
 		strcpy(txt,LPCTSTR(dlg.m_reg));

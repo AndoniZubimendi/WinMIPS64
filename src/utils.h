@@ -32,5 +32,5 @@ extern BOOL getsym(symbol_table *,int,char *&,WORD32 *);
 extern void init_processor(processor *,int,int);
 extern void init_pipeline(pipeline *,int,int,int);
 extern int clock_tick(pipeline *,processor *,BOOL,BOOL,BOOL,RESULT *);
-
+extern char *registerName(int regnum, char *buffer, BOOL registerAsNumber);
 #endif

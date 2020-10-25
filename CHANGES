@@ -76,3 +76,6 @@ V1.57b
 
 V1.58
 - Fixed structural stalls not added when they appear on ID
+
+V1.60
+- Added option for alternative integer registers names.

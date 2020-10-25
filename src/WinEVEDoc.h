@@ -50,6 +50,7 @@ public:
 	BOOL forwarding;
 	BOOL delay_slot;
 	BOOL branch_target_buffer;
+	BOOL registers_as_numbers;
 
 	symbol_table code_table[SYMTABSIZE];
 	symbol_table data_table[SYMTABSIZE];
@@ -152,6 +153,8 @@ protected:
 	afx_msg void OnUpdateFileForwarding(CCmdUI* pCmdUI);
 	afx_msg void OnBtb();
 	afx_msg void OnUpdateBtb(CCmdUI* pCmdUI);
+	afx_msg void OnFileRegistersAsNumbers();
+	afx_msg void OnUpdateRegistersAsNumbers(CCmdUI* pCmdUI);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

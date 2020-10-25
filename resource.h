@@ -53,6 +53,7 @@
 #define ID_FILE_DELAY_SLOT              32787
 #define ID_FILE_FORWARDING              32788
 #define ID_BTB                          32789
+#define ID_FILE_REGISTER_AS_NUMBER      32790
 
 // Next default values for new objects
 // 

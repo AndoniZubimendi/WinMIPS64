@@ -453,3 +453,48 @@ void init_pipeline(pipeline *pipe,int ADDS,int MULS,int DIVS)
 	pipe->mem_wb.condition=TRUE;
 	pipe->ex_mem.condition=TRUE;
 }
+
+static char const*conventionRegisterName[32] = {
+  "0 ", 
+  "at", 
+  "v0", 
+  "v1", 
+  "a0", 
+  "a1", 
+  "a2", 
+  "a3", 
+  "t0", 
+  "t1", 
+  "t2", 
+  "t3", 
+  "t4", 
+  "t5", 
+  "t6", 
+  "t7", 
+  "s0", 
+  "s1", 
+  "s2", 
+  "s3", 
+  "s4", 
+  "s5", 
+  "s6", 
+  "s7", 
+  "t8", 
+  "t9", 
+  "k0", 
+  "k1", 
+  "gp", 
+  "sp", 
+  "fp", 
+  "ra"
+};
+
+char *registerName(int regnum, char *buffer, BOOL registerAsNumber) {
+	if (registerAsNumber == TRUE) {
+		sprintf(buffer,"R%d=  ",regnum);
+	} else {
+		sprintf(buffer,"$%s=  ",conventionRegisterName[regnum]);
+	}
+
+  return buffer;
+}

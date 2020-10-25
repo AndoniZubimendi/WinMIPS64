@@ -152,6 +152,8 @@ BEGIN_MESSAGE_MAP(CWinEVEDoc, CDocument)
 	ON_UPDATE_COMMAND_UI(ID_FILE_FORWARDING, OnUpdateFileForwarding)
 	ON_COMMAND(ID_BTB, OnBtb)
 	ON_UPDATE_COMMAND_UI(ID_BTB, OnUpdateBtb)
+	ON_COMMAND(ID_FILE_REGISTER_AS_NUMBER, OnFileRegistersAsNumbers)
+	ON_UPDATE_COMMAND_UI(ID_FILE_REGISTER_AS_NUMBER, OnUpdateRegistersAsNumbers)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
@@ -218,6 +220,9 @@ CWinEVEDoc::CWinEVEDoc()
 		file.ReadString(txt,10);
 		if (atoi(txt)==1 && !delay_slot)	branch_target_buffer=TRUE;
 		else				                branch_target_buffer=FALSE;
+		file.ReadString(txt,10);
+		if (atoi(txt)==1 && !registers_as_numbers)	registers_as_numbers=TRUE;
+		else				                registers_as_numbers=FALSE;
 		
 
 		file.Close();
@@ -289,6 +294,9 @@ CWinEVEDoc::~CWinEVEDoc()
 		else			sprintf(txt,"0\n");
 		file.WriteString(txt);
 		if (branch_target_buffer) sprintf(txt,"1\n");
+		else			          sprintf(txt,"0\n");
+		file.WriteString(txt);
+		if (registers_as_numbers) sprintf(txt,"1\n");
 		else			          sprintf(txt,"0\n");
 		file.WriteString(txt);
 
@@ -2104,4 +2112,17 @@ void CWinEVEDoc::OnUpdateBtb(CCmdUI* pCmdUI)
 {
 	pCmdUI->SetCheck(branch_target_buffer);
 	pCmdUI->Enable(!delay_slot);
+}
+
+void CWinEVEDoc::OnFileRegistersAsNumbers() 
+{
+	if (registers_as_numbers) registers_as_numbers=FALSE;
+	else            registers_as_numbers=TRUE;
+	UpdateAllViews(NULL);
+
+}
+
+void CWinEVEDoc::OnUpdateRegistersAsNumbers(CCmdUI* pCmdUI) 
+{
+	pCmdUI->SetCheck(registers_as_numbers);	
 }

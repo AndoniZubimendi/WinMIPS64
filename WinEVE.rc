@@ -142,6 +142,8 @@ BEGIN
         MENUITEM "Activar &Forwarding",         ID_FILE_FORWARDING, CHECKED
         MENUITEM "Activar &Branch Target Buffer", ID_BTB
         MENUITEM "Activar &Delay Slot",         ID_FILE_DELAY_SLOT
+        MENUITEM "Activar &Registros como numeros", 
+                                                ID_FILE_REGISTER_AS_NUMBER
     END
     POPUP "&Ventana"
     BEGIN
@@ -194,16 +196,16 @@ END
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 187, 79
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 187, 108
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Acerca de WinMips64"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "WinMIPS64  V1.58",IDC_STATIC,35,15,75,8,SS_NOPREFIX
-    LTEXT           "Mike Scott 2003-2012\nDublin, Ireland\nmscott@indigo.ie\nWebsite: http://indigo.ie/~mscott",
-                    IDC_STATIC,10,35,170,37
-    DEFPUSHBUTTON   "OK",IDOK,135,10,32,17,WS_GROUP
-    ICON            IDR_MAINFRAME,IDC_STATIC,10,10,21,20
+    LTEXT           "WinMIPS64  V1.60",IDC_STATIC,35,7,75,8,SS_NOPREFIX
+    LTEXT           "Mike Scott 2003-2013\nDublin, Ireland\nmscott@indigo.ie\nWebsite: http://indigo.ie/~mscott\nAndoni Zubimendi 2014-2020\nLa Plata, Argentina\nandoni.zubimendi@gmail.com\nWebsite: http://github.com/AndoniZubimendi/WinMIPS64",
+                    IDC_STATIC,10,27,170,74
+    DEFPUSHBUTTON   "OK",IDOK,145,7,32,17,WS_GROUP
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,21,20
 END
 
 IDD_REGISTER DIALOG DISCARDABLE  0, 0, 112, 55
@@ -323,7 +325,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 180
         TOPMARGIN, 7
-        BOTTOMMARGIN, 72
+        BOTTOMMARGIN, 101
     END
 
     IDD_REGISTER, DIALOG
@@ -502,6 +504,7 @@ BEGIN
     ID_FILE_DELAY_SLOT      "Enable Delay Slot"
     ID_FILE_FORWARDING      "Enable Forwarding"
     ID_BTB                  "Enable Branch Target Buffer"
+    ID_FILE_REGISTER_AS_NUMBER "Enable Registers as Numbers"
 END
 
 #endif    // English (U.S.) resources
