@@ -1,6 +1,8 @@
 WinEsim.plg
 WinEsim.ncb
+WinEsim.suo
 WinEVE.aps
+WinESim*.user
 /*.opt
 Release/
 Debug/

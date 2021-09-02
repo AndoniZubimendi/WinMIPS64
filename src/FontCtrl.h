@@ -5,8 +5,6 @@
 #pragma once
 #endif // _MSC_VER >= 1000
 
-#include "TemplDef.h" // message map extensions for templates
-
 ///////////////////////////////////////////////////////////////////////////////
 // class CFontCtrl
 //
@@ -71,16 +69,16 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	//}}AFX_MSG
 
-	DECLARE_TEMPLATE_MESSAGE_MAP()
+	DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////
 
-BEGIN_TEMPLATE_MESSAGE_MAP(class BASE_TYPE, CFontCtrl<BASE_TYPE>, BASE_TYPE)
-	//{{AFX_MSG_MAP(CFontCtrl)
+ BEGIN_TEMPLATE_MESSAGE_MAP(CFontCtrl, BASE_TYPE, BASE_TYPE)
+ 	//{{AFX_MSG_MAP(CFontCtrl)
 	ON_WM_CREATE()
 	//}}AFX_MSG_MAP
-END_TEMPLATE_MESSAGE_MAP()
+END_MESSAGE_MAP()
 
 template<class BASE_TYPE>
 void CFontCtrl<BASE_TYPE>::RecreateFont(BOOL fRedraw)

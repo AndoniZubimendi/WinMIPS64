@@ -144,7 +144,7 @@ protected:
 	afx_msg void OnUpdateExecuteInterrupt(CCmdUI* pCmdUI);
 	afx_msg void OnFullReset();
 	afx_msg void OnUpdateFullReset(CCmdUI* pCmdUI);
-	afx_msg int OnReload();
+	afx_msg void OnReload();
 	afx_msg void OnUpdateReload(CCmdUI* pCmdUI);
 	afx_msg void OnConfigureWordlength();
 	afx_msg void OnFileDelaySlot();

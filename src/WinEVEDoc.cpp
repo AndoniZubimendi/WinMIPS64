@@ -189,7 +189,7 @@ CWinEVEDoc::CWinEVEDoc()
 		file.ReadString(AppDir,MAX_PATH);
 		file.Close();
 	}
-	strcpy(LasDir,AppDir); 	
+	strcpy_s(LasDir,MAX_PATH+1, AppDir); 	
 
  	fname=(CString)AppDir+'\\'+"winmips64.ini";
 
@@ -618,8 +618,10 @@ int CWinEVEDoc::update_io(processor *cpu)
 		break;
 	case (WORD32)4:
 // need to test here if fp.u is a legal address!
-		if (fp.u<cpu->datasize) cpu->Terminal+=&cpu->data[fp.u];
-		UpdateAllViews(NULL,2);
+        if (fp.u<cpu->datasize) {
+        	cpu->Terminal = cpu->Terminal + &cpu->data[fp.u];
+        }
+        UpdateAllViews(NULL,2);
 		break;
 
 	case (WORD32)5:
@@ -2053,7 +2055,7 @@ void CWinEVEDoc::OnUpdateFullReset(CCmdUI* pCmdUI)
 	pCmdUI->Enable(!simulation_running);	
 }
 
-int CWinEVEDoc::OnReload() 
+void CWinEVEDoc::OnReload() 
 { // reload last file
 	int res;
 	char txt[512];
@@ -2066,8 +2068,6 @@ int CWinEVEDoc::OnReload()
 		_snprintf(txt, 512, "Archivo cargado - %s",lastfile);
 		pStatus->SetPaneText(0,txt);
 	}
-
-	return res;
 }
 
 void CWinEVEDoc::OnUpdateReload(CCmdUI* pCmdUI) 
