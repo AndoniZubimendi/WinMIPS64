@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>WinEVE</ProjectName>
+    <ProjectName>WinMIPS64</ProjectName>
     <ProjectGuid>{707395BF-CE47-461C-9A13-BAE7D8C5D7EE}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -71,7 +71,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>.\Debug/WinEVE.exe</OutputFile>
+      <OutputFile>.\Debug/WinMIPS64.exe</OutputFile>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/WinEsim.pdb</ProgramDatabaseFile>
@@ -80,7 +80,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
-      <ShowProgress>LinkVerbose</ShowProgress>
+      <ShowProgress>NotSet</ShowProgress>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -117,7 +117,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>.\Release/WinEVE.exe</OutputFile>
+      <OutputFile>.\Release/WinMIPS64.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>.\Release/WinEsim.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -243,7 +243,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="WinEVE.rc">
+    <ResourceCompile Include="WinMIPS64.rc">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
@@ -274,7 +274,6 @@
     <ClInclude Include="src\StatChildFrm.h" />
     <ClInclude Include="src\StatView.h" />
     <ClInclude Include="src\StdAfx.h" />
-    <ClInclude Include="src\TemplDef.h" />
     <ClInclude Include="src\utils.h" />
     <ClInclude Include="src\WinEVE.h" />
     <ClInclude Include="src\WinEVEDoc.h" />
@@ -291,7 +290,7 @@
     <None Include="res\icon7.ico" />
     <None Include="res\Toolbar.bmp" />
     <None Include="res\WinEVE.ico" />
-    <None Include="res\WinEVE.rc2" />
+    <None Include="res\WinMIPS64.rc2" />
     <None Include="res\WinEVEDoc.ico" />
     <None Include="ReadMe.txt" />
   </ItemGroup>

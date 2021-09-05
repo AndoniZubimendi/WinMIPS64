@@ -607,7 +607,7 @@ END
 LANGUAGE 9, 1
 #pragma code_page(1252)
 #endif
-#include "res\WinEVE.rc2"  // non-Microsoft Visual C++ edited resources
+#include "res\WinMIPS64.rc2"  // non-Microsoft Visual C++ edited resources
 #include "afxres.rc"         // Standard components
 #endif
 /////////////////////////////////////////////////////////////////////////////
