@@ -164,14 +164,7 @@ CWinEVEDoc* CWinEVEView::GetDocument() // non-debug version is inline
 
 void CWinEVEView::OnInitialUpdate() 
 {
-	CMainFrame* pFrame=(CMainFrame*) AfxGetApp()->m_pMainWnd;
-	CStatusBar* pStatus=&pFrame->m_wndStatusBar;
-
 	CScrollView::OnInitialUpdate();
-
-	CWinEVEDoc* pDoc=GetDocument();
-
-//	AfxGetMainWnd()->SetWindowText("Hello mike");
 
 	CSize sizeTotal;
 	// TODO: calculate the total size of this view

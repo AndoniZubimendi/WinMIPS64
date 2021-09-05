@@ -484,7 +484,8 @@ static int ID(pipeline *pipe,processor *cpu,BOOL forwarding,BOOL branch_target_b
     int status,type,branch_status;
     instruction ins;
 	BOOL predictable;
-    WORD64 A,B;
+    WORD64 A = 0;
+	WORD64 B = 0;
 	BOOL branch_complete;
 
     if (!pipe->if_id.active) return EMPTY;      /* nothing to do   */
@@ -868,6 +869,8 @@ static int EX_DIV(pipeline *pipe,processor *cpu,BOOL forwarding,int *rawreg)
     DOUBLE64 fpA,fpB,fpR;
 	BOOL status=EMPTY;
 
+    fpR.d = 0.0;
+
 /*
    if the division unit is active, count it down by one
    if cycles = 0 and active is TRUE, then result is available
@@ -955,6 +958,8 @@ static void EX_MUL(pipeline *pipe,processor *cpu,BOOL forwarding,int *rawreg,int
 	int i,rA,rB,MULS;
 	instruction ins;
 	DOUBLE64 fpA,fpB,fpR;
+	fpR.d = 0.0;
+
     id_ex_reg idle;
 
 	MULS=pipe->MUL_LATENCY;
@@ -1045,7 +1050,8 @@ static void EX_ADD(pipeline *pipe,processor *cpu,BOOL forwarding,int *rawreg,int
 	instruction ins;
 	DOUBLE64 fpA,fpB,fpR;
     id_ex_reg idle;
-	
+	fpR.d = 0.0;
+
 	ADDS=pipe->ADD_LATENCY;
 	for (i=0;i<ADDS;i++) status[i]=OK;
     ins=pipe->a[ADDS-1].ins;     

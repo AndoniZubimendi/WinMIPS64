@@ -114,7 +114,6 @@ CWinEVEDoc* CDataView::GetDocument() // non-debug version is inline
 void CDataView::OnInitialUpdate() 
 {
 	CScrollView::OnInitialUpdate();
-	CWinEVEDoc* pDoc=GetDocument();
 
 	font.CreateFont(15,0,0,0,400,FALSE,FALSE,0,
 					ANSI_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,

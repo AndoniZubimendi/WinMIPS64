@@ -938,7 +938,8 @@ void CWinEVEDoc::OnExecuteMulticycle()
 {
 	CMainFrame* pFrame=(CMainFrame*) AfxGetApp()->m_pMainWnd;
 	CStatusBar* pStatus=&pFrame->m_wndStatusBar;
-	int i,status;
+	int i;
+	int status = 0;
 	simulation_running=TRUE;
 	for (i=0;i<multi-1;i++)
 	{
