@@ -101,7 +101,7 @@ void CRegView::OnDraw(CDC* pDC)
 			pDC->SetTextColor(GREY);
 
 		db.s=pDoc->cpu.rreg[i+32].val;
-		sprintf(txt,"F%d=  ",i);
+		sprintf_s(txt,200,"F%d=  ",i);
 		sprintdouble(&txt[5],db.d);
 	
 		pDC->TextOut(160,i*14,txt);
@@ -166,12 +166,12 @@ void CRegView::OnLButtonDblClk(UINT /* nFlags */, CPoint point)
 		db.s=pDoc->cpu.rreg[reg+32].val;
 		sprintdouble(txt1,db.d);
 		fdlg.m_freg=txt1;
-		sprintf(txt,"F%d=",reg);
+		sprintf_s(txt,1000,"F%d=",reg);
 		fdlg.m_fname=txt;
 		fdlg.DoModal();
 		if (strcmp(txt1,LPCTSTR(fdlg.m_freg))!=0)
 		{
-			strcpy(txt,LPCTSTR(fdlg.m_freg));
+			strcpy_s(txt,1000,LPCTSTR(fdlg.m_freg));
 			db.d=atof(txt);
 			pDoc->cpu.rreg[reg+32].val=db.u;
 			pDoc->cpu.wreg[reg+32].val=db.u;
@@ -188,7 +188,7 @@ void CRegView::OnLButtonDblClk(UINT /* nFlags */, CPoint point)
 		registerName(reg, txt, pDoc->registers_as_numbers);
 		dlg.m_name=txt;
 		dlg.DoModal();
-		strcpy(txt,LPCTSTR(dlg.m_reg));
+		strcpy_s(txt,1000,LPCTSTR(dlg.m_reg));
 		pDoc->cpu.rreg[reg].val=strtoint64(txt,NULL,16);
 		pDoc->cpu.wreg[reg].val=strtoint64(txt,NULL,16);
 	}

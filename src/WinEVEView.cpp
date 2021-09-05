@@ -54,7 +54,7 @@ BOOL CWinEVEView::PreCreateWindow(CREATESTRUCT& cs)
 
 void CWinEVEView::OnDraw(CDC* pDC)
 {
-	unsigned int i,j,pos;
+	unsigned int i,j,pos, len;
 	WORD32 fourbytes;
 	CWinEVEDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -104,15 +104,17 @@ void CWinEVEView::OnDraw(CDC* pDC)
 
 		if ((pDoc->cpu.cstat[i])==0) 
 		{
-			sprintf(&txt[pos]," %08x %s",fourbytes,linetext);
+			len = 400 - pos;
+			sprintf_s(&txt[pos],len, " %08x %s",fourbytes,linetext);
 			pDC->TextOut(0,14*i/4,txt);
 		}
 		else 
 		{
+			len = 400 - pos;
 			if ((pDoc->cpu.cstat[i]&2)!=0)
-				sprintf(&txt[pos],"%c%08x %s",171,fourbytes,linetext);
+				sprintf_s(&txt[pos],len,"%c%08x %s",171,fourbytes,linetext);
 			else
-			     sprintf(&txt[pos]," %08x %s",fourbytes,linetext);                    
+			     sprintf_s(&txt[pos],len," %08x %s",fourbytes,linetext);                    
 			if ((pDoc->cpu.cstat[i]&1)!=0)
 				pDC->SetTextColor(BLUE);
 			else

@@ -96,14 +96,14 @@ void CCyclesView::OnDraw(CDC* pDC)
 			case MULEX:
 				pDC->SelectObject(dcyan);
 				pDC->Rectangle(box);
-				sprintf(txt,"M%d",substage);
+				sprintf_s(txt,10,"M%d",substage);
 				if (stage!=last_stage || substage!=last_substage) 
 					pDC->TextOut(tx,ty,txt);
 				break;
 			case ADDEX:
 				pDC->SelectObject(dgreen);
 				pDC->Rectangle(box);
-				sprintf(txt,"A%d",substage);
+				sprintf_s(txt,10,"A%d",substage);
 				if (stage!=last_stage || substage!=last_substage) 
 					pDC->TextOut(tx,ty,txt);
 				break;

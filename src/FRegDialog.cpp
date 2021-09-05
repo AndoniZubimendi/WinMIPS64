@@ -73,7 +73,7 @@ void CFRegDialog::OnOK()
 	int i;
 	char txt[20];
 	UpdateData(TRUE);
-	strcpy(txt,m_freg);
+	strcpy_s(txt,20,m_freg);
 
 	i=0;
 	while (txt[i]!=0 && txt[i]!=' ')

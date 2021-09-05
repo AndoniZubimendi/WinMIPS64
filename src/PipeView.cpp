@@ -38,9 +38,8 @@ END_MESSAGE_MAP()
 
 void get_mnemonic(CString s,char *txt)
 {
-	strcpy(txt,s);
-	
-
+	// TODO: 100 is fixed, should be passed as parameter
+	strcpy_s(txt,100,s);
 }
 
 void CPipeView::OnDraw(CDC* pDC)
@@ -156,7 +155,7 @@ void CPipeView::OnDraw(CDC* pDC)
 		pDC->SelectObject(brush);
 	}
 	pDC->Rectangle(CRect(-100,-400,100,-700));
-	sprintf(txt,"  DIV  %d",pDoc->pipe.div.cycles);
+	sprintf_s(txt,80,"  DIV  %d",pDoc->pipe.div.cycles);
 	pDC->TextOut(-60,-500,txt);
 	brush.DeleteObject();
 	brush.Detach();

@@ -15,13 +15,15 @@ int bits(int num)
 
 // print out nbits, rounded up to nearest byte
 
+
+// TODO: should pass txt size
 int sprintnbits(char *txt,WORD32 addr,int n)
 {
 	int i,nbytes=n/8;
 	if (n%8!=0) nbytes++;
 	BYTE a[4];
 	unpack32(addr,a);
-	for (i=0;i<nbytes;i++) sprintf(&txt[2*i],"%02x",a[nbytes-i-1]);
+	for (i=0;i<nbytes;i++) sprintf_s(&txt[2*i],3, "%02x",a[nbytes-i-1]);
 	return nbytes;
 }
 
@@ -74,23 +76,26 @@ void unpack(WORD64 a,BYTE *b)
 	}
 }
 
+// TODO: should pass txt size
 void sprintword32(char *txt,WORD32 addr)
 {
-	sprintf(txt,"%08x",addr);
+	sprintf_s(txt,9,"%08x",addr);
 }
 
+
+// TODO: should pass txt size
 void sprintword(char *txt,WORD64 val)
 {
 	int i;
 	BYTE a[8];
 	val&=MASK;
 	unpack(val,a);
-	for (i=0;i<STEP;i++) sprintf(&txt[2*i],"%02x",a[STEP-i-1]);
+	for (i=0;i<STEP;i++) sprintf_s(&txt[2*i],3,"%02x",a[STEP-i-1]);
 }
 
 void sprintdouble(char *txt,double db)
 {
-    sprintf(txt,"%016.8lf",db);
+    sprintf_s(txt,26, "%016.8lf",db);
 }
 
 BOOL in_range(WORD32 num,WORD32 mask)
@@ -490,10 +495,11 @@ static char const*conventionRegisterName[32] = {
 };
 
 char *registerName(int regnum, char *buffer, BOOL registerAsNumber) {
+	// TODO buffer size 10 is fixed, should be passed as parameter
 	if (registerAsNumber == TRUE) {
-		sprintf(buffer,"R%d=  ",regnum);
+		sprintf_s(buffer,10, "R%d=  ",regnum);
 	} else {
-		sprintf(buffer,"$%s=  ",conventionRegisterName[regnum]);
+		sprintf_s(buffer,10, "$%s=  ",conventionRegisterName[regnum]);
 	}
 
   return buffer;

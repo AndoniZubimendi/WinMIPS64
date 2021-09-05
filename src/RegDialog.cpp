@@ -53,7 +53,7 @@ void CRegDialog::OnOK()
 	int i;
 	char txt[20];
 	UpdateData(TRUE);
-	strcpy(txt,m_reg);
+	strcpy_s(txt,20,m_reg);
 
 	i=0;
 	while (txt[i]!=0 && txt[i]!=' ')

@@ -277,27 +277,27 @@ CWinEVEDoc::~CWinEVEDoc()
 
 	if (file.Open(fname,CFile::modeCreate | CFile::modeWrite))
 	{
-		sprintf(txt,"%d\n",bits(CODESIZE));
+		sprintf_s(txt,10, "%d\n",bits(CODESIZE));
 		file.WriteString(txt);
-		sprintf(txt,"%d\n",bits(DATASIZE));
+		sprintf_s(txt,10,"%d\n",bits(DATASIZE));
 		file.WriteString(txt);
-		sprintf(txt,"%d\n",ADD_LATENCY);
+		sprintf_s(txt,10,"%d\n",ADD_LATENCY);
 		file.WriteString(txt);
-		sprintf(txt,"%d\n",MUL_LATENCY);
+		sprintf_s(txt,10,"%d\n",MUL_LATENCY);
 		file.WriteString(txt);
-		sprintf(txt,"%d\n",DIV_LATENCY);
+		sprintf_s(txt,10,"%d\n",DIV_LATENCY);
 		file.WriteString(txt);
-		if (delay_slot) sprintf(txt,"1\n");
-		else			sprintf(txt,"0\n");
+		if (delay_slot) sprintf_s(txt,10,"1\n");
+		else			sprintf_s(txt,10,"0\n");
 		file.WriteString(txt);
-		if (forwarding) sprintf(txt,"1\n");
-		else			sprintf(txt,"0\n");
+		if (forwarding) sprintf_s(txt,10,"1\n");
+		else			sprintf_s(txt,10,"0\n");
 		file.WriteString(txt);
-		if (branch_target_buffer) sprintf(txt,"1\n");
-		else			          sprintf(txt,"0\n");
+		if (branch_target_buffer) sprintf_s(txt,10,"1\n");
+		else			          sprintf_s(txt,10,"0\n");
 		file.WriteString(txt);
-		if (registers_as_numbers) sprintf(txt,"1\n");
-		else			          sprintf(txt,"0\n");
+		if (registers_as_numbers) sprintf_s(txt,10,"1\n");
+		else			          sprintf_s(txt,10,"0\n");
 		file.WriteString(txt);
 
 	
@@ -444,7 +444,7 @@ void CWinEVEDoc::OnFileOpen()
 // if unable to write it there -  write it here instead
 			int pathstart=path.ReverseFind('\\');
 			if (pathstart>=0 && pathstart<MAX_PATH)
-				strcpy(LasDir,path.Left(pathstart));
+				strcpy_s(LasDir,MAX_PATH, path.Left(pathstart));
 			else
 				LasDir[0]=0;
 			fname=(CString)LasDir+'\\'+"winmips64.las";
@@ -468,28 +468,28 @@ void CWinEVEDoc::check_stalls(int status,char *str,int rawreg,char *txt)
 	{
 		raw_stalls++;
 		if (rawreg<32)
-			sprintf(mess,"  Atasco RAW en %s (R%d)",str,rawreg);
+			sprintf_s(mess,100,"  Atasco RAW en %s (R%d)",str,rawreg);
 		else
-			sprintf(mess,"  Atasco RAW en %s (F%d)",str,rawreg-32);
-		strcat(txt,mess);
+			sprintf_s(mess,100,"  Atasco RAW en %s (F%d)",str,rawreg-32);
+		strcat_s(txt,100, mess);
 	}
 	if (status==WAW)	
 	{
 		waw_stalls++;
 		if (rawreg<32)
-			sprintf(mess,"  Atasco WAW en %s (R%d)",str,rawreg);
+			sprintf_s(mess,100,"  Atasco WAW en %s (R%d)",str,rawreg);
 		else
-			sprintf(mess,"  Atasco WAW en %s (F%d)",str,rawreg-32);
-		strcat(txt,mess);
+			sprintf_s(mess,100,"  Atasco WAW en %s (F%d)",str,rawreg-32);
+		strcat_s(txt,100,mess);
 	}
 	if (status==WAR)
 	{
 		war_stalls++;
 		if (rawreg<32)
-			sprintf(mess,"  Atasco WAR en %s (R%d)",str,rawreg);
+			sprintf_s(mess,100,"  Atasco WAR en %s (R%d)",str,rawreg);
 		else
-			sprintf(mess,"  Atasco WAR en %s (F%d)",str,rawreg-32);
-		strcat(txt,mess);
+			sprintf_s(mess,100,"  Atasco WAR en %s (F%d)",str,rawreg-32);
+		strcat_s(txt,100,mess);
 	}
 }
 
@@ -507,13 +507,13 @@ void CWinEVEDoc::process_result(RESULT *result,BOOL show)
 	{
 		something=TRUE;
 		branch_taken_stalls++;
-		strcat(txt,"  Atasco Branch Taken");
+		strcat_s(txt,100,"  Atasco Branch Taken");
 	}
 	if (result->ID==BRANCH_MISPREDICTED_STALL)
 	{
 		something=TRUE;
 		branch_misprediction_stalls++;
-		strcat(txt,"  Atasco Branch Misprediction");
+		strcat_s(txt,100,"  Atasco Branch Misprediction");
 	}
 
 	if (result->MEM==LOADS || result->MEM==DATA_ERR) loads++;
@@ -531,54 +531,54 @@ void CWinEVEDoc::process_result(RESULT *result,BOOL show)
 		if (result->ID==STALLED)
 		{
 			structural_stalls++;
-			strcat(txt,"  Atasco Estructural en ID");
+			strcat_s(txt,300,"  Atasco Estructural en ID");
 		}
 		if (result->EX==STALLED)
 		{
 			structural_stalls++;
-			strcat(txt,"  Atasco Estructural en EX");
+			strcat_s(txt,300,"  Atasco Estructural en EX");
 		}
 		if (result->DIVIDER==STALLED)
 		{
 			structural_stalls++;
-			strcat(txt,"  Atasco Estructural en FP-DIV");
+			strcat_s(txt,300,"  Atasco Estructural en FP-DIV");
 		}
 		if (result->MULTIPLIER[MUL_LATENCY-1]==STALLED)
 		{
 			structural_stalls++;
-			strcat(txt,"  Atasco Estructural en FP-MUL");
+			strcat_s(txt,300,"  Atasco Estructural en FP-MUL");
 		}
 		if (result->ADDER[ADD_LATENCY-1]==STALLED)
 		{
 			structural_stalls++;
-			strcat(txt,"  Atasco Estructural en FP-ADD");
+			strcat_s(txt,300,"  Atasco Estructural en FP-ADD");
 		}
 	}
 	if (result->IF==NO_SUCH_CODE_MEMORY)
 	{
-		strcat(txt,"  No existe esa dirección de código!");
+		strcat_s(txt,300,"  No existe esa dirección de código!");
 		cpu.status=HALTED;
 	}
 	if (result->EX==INTEGER_OVERFLOW)
 	{
-		strcat(txt,"  Desbordamiento de número entero!");
+		strcat_s(txt,300,"  Desbordamiento de número entero!");
 	}
 	if (result->DIVIDER==DIVIDE_BY_ZERO)
 	{
-		strcat(txt,"  División por Cero en DIV!");
+		strcat_s(txt,300,"  División por Cero en DIV!");
 	}
 
 	if (result->MEM==DATA_ERR)
 	{
-		strcat(txt,"  Memoria no inicializada en MEM!");
+		strcat_s(txt,300,"  Memoria no inicializada en MEM!");
 	}
 	if (result->MEM==NO_SUCH_DATA_MEMORY)
 	{
-		strcat(txt,"  No existe esa dirección de datos!");
+		strcat_s(txt,300,"  No existe esa dirección de datos!");
 	}
 	if (result->MEM==DATA_MISALIGNED)
 	{
-		strcat(txt, " Error Fatal - LOAD/StTORE de memoria mal alineado!");
+		strcat_s(txt, 300," Error Fatal - LOAD/StTORE de memoria mal alineado!");
 	}
 
 	if (show)
@@ -602,17 +602,17 @@ int CWinEVEDoc::update_io(processor *cpu)
 	switch (func)
 	{
 	case (WORD32)1:
-		sprintf(txt,"%I64u\n",fp.u);
+		sprintf_s(txt,30,"%I64u\n",fp.u);
 		cpu->Terminal+=txt;
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)2:
-		sprintf(txt,"%I64d\n",fp.s);
+		sprintf_s(txt,30,"%I64d\n",fp.s);
 		cpu->Terminal+=txt;
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)3:
-		sprintf(txt,"%lf\n",fp.d);
+		sprintf_s(txt,30,"%lf\n",fp.d);
 		cpu->Terminal+=txt;
 		UpdateAllViews(NULL,2);
 		break;
@@ -985,12 +985,12 @@ void CWinEVEDoc::OnExecuteRunto()
 	simulation_running=FALSE;
 	if (status==WAITING_FOR_INPUT) 
 	{
-		sprintf(buf,"Simulación Detenida luego de %d ciclos - Esperando Entrada",lapsed);
+		sprintf_s(buf,80,"Simulación Detenida luego de %d ciclos - Esperando Entrada",lapsed);
 		restart=TRUE;
 	}
 	else
 	{
-		sprintf(buf,"Simulación Detenida luego de %d ciclos",lapsed);
+		sprintf_s(buf,80,"Simulación Detenida luego de %d ciclos",lapsed);
 		restart=FALSE;
 	}
 
@@ -1031,7 +1031,7 @@ int CWinEVEDoc::openfile(CString fname)
 	if (res==1)
 	{
 		char txt[512];
-		sprintf(txt,"No se pudo abrir el archivo %s",fname);
+		sprintf_s(txt,512,"No se pudo abrir el archivo %s",fname);
 		AfxMessageBox(txt,MB_OK|MB_ICONEXCLAMATION);
 		return res;
 	}
@@ -1575,7 +1575,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
         
         if (CODEORDATA==0)
         {
-            sprintf(txt,"Pasada 1 - Error en linea %d\n",lineptr);
+            sprintf_s(txt,100,"Pasada 1 - Error en linea %d\n",lineptr);
 			AfxMessageBox(txt);
             return 1;
         }
@@ -1583,7 +1583,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
         {
             if (code_symptr>=SYMTABSIZE)
             {
-                sprintf(txt,"Pasada 1 - Error en linea %d\nLa tabla de Simbolos de Código esta llena.",lineptr);
+                sprintf_s(txt,100,"Pasada 1 - Error en linea %d\nLa tabla de Simbolos de Código esta llena.",lineptr);
                 AfxMessageBox(txt);
                 return 1;
             } 
@@ -1598,7 +1598,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
         {
             if (data_symptr>=SYMTABSIZE)
             {
-                sprintf(txt,"Pasada 1 - Error en linea %d\nLa tabla de Simbolos de Datos esta llena.",lineptr);
+                sprintf_s(txt,100,"Pasada 1 - Error en linea %d\nLa tabla de Simbolos de Datos esta llena.",lineptr);
                 AfxMessageBox(txt);
                 return 1;
             } 
@@ -1618,7 +1618,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
         // increase instruction pointer
         if (CODEORDATA!=CODE)
         {
-            sprintf(txt,"Pasada 1 - Error en linea %d\n",lineptr);
+            sprintf_s(txt,100,"Pasada 1 - Error en linea %d\n",lineptr);
 			AfxMessageBox(txt);
             return 1;
         }
@@ -1626,7 +1626,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
         codeptr+=4;
         if (codeptr>CODESIZE)
         {
-            sprintf(txt,"Pasada 1 - Error en linea %d\nNo existe esa ubicación de memoria",lineptr);
+            sprintf_s(txt,100,"Pasada 1 - Error en linea %d\nNo existe esa ubicación de memoria",lineptr);
             AfxMessageBox(txt);
             return 1;
         }
@@ -1634,7 +1634,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
     }
     if (directive(1,ptr,line)) return 0;
 
-    sprintf(txt,"Pasada 1 - Error en linea %d\n",lineptr);
+    sprintf_s(txt,100,"Pasada 1 - Error en linea %d\n",lineptr);
     AfxMessageBox(txt);
     return 1;
 }
@@ -2065,7 +2065,7 @@ void CWinEVEDoc::OnReload()
 	if (res==0) 
 	{
 	//	AfxGetMainWnd()->SetWindowText(lastfile);
-		_snprintf(txt, 512, "Archivo cargado - %s",lastfile);
+		sprintf_s(txt, 512, "Archivo cargado - %s",lastfile);
 		pStatus->SetPaneText(0,txt);
 	}
 }
