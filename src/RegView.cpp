@@ -55,7 +55,7 @@ void CRegView::OnDraw(CDC* pDC)
 	DOUBLE64 db;
 	SIGNED32 source;
 
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	char txt[200];
 
 	pDC->SelectObject(&font);
@@ -132,10 +132,10 @@ void CRegView::Dump(CDumpContext& dc) const
 	CScrollView::Dump(dc);
 }
 
-CWinEVEDoc* CRegView::GetDocument() // non-debug version is inline
+CWinMIPS64Doc* CRegView::GetDocument() // non-debug version is inline
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinEVEDoc)));
-	return (CWinEVEDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinMIPS64Doc)));
+	return (CWinMIPS64Doc*)m_pDocument;
 }
 #endif //_DEBUG
 
@@ -152,7 +152,7 @@ void CRegView::OnLButtonDblClk(UINT /* nFlags */, CPoint point)
 	int reg=first+point.y/14;
 	char txt[1000];
 	char txt1[1000];
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	
 	if (reg>31) return;
 

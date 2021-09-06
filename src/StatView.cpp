@@ -51,7 +51,7 @@ void CStatView::OnInitialUpdate()
 
 void CStatView::OnDraw(CDC* pDC)
 {
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	
 	char txt[100];
 
@@ -167,10 +167,10 @@ void CStatView::Dump(CDumpContext& dc) const
 	CScrollView::Dump(dc);
 }
 
-CWinEVEDoc* CStatView::GetDocument() // non-debug version is inline
+CWinMIPS64Doc* CStatView::GetDocument() // non-debug version is inline
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinEVEDoc)));
-	return (CWinEVEDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinMIPS64Doc)));
+	return (CWinMIPS64Doc*)m_pDocument;
 }
 
 #endif //_DEBUG

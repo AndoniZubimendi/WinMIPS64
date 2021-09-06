@@ -1,4 +1,4 @@
-// WinEVEDoc.cpp : implementation of the CWinEVEDoc class
+// WinEVEDoc.cpp : implementation of the CWinMIPS64Doc class
 //
 
 #include "stdafx.h"
@@ -120,12 +120,12 @@ static op_code_info codes[]={
 };
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEDoc
+// CWinMIPS64Doc
 
-IMPLEMENT_DYNCREATE(CWinEVEDoc, CDocument)
+IMPLEMENT_DYNCREATE(CWinMIPS64Doc, CDocument)
 
-BEGIN_MESSAGE_MAP(CWinEVEDoc, CDocument)
-	//{{AFX_MSG_MAP(CWinEVEDoc)
+BEGIN_MESSAGE_MAP(CWinMIPS64Doc, CDocument)
+	//{{AFX_MSG_MAP(CWinMIPS64Doc)
 	ON_COMMAND(ID_FILE_RESET, OnFileReset)
 	ON_COMMAND(ID_FILE_OPEN, OnFileOpen)
 	ON_COMMAND(ID_EXECUTE_SINGLE, OnExecuteSingle)
@@ -157,9 +157,9 @@ BEGIN_MESSAGE_MAP(CWinEVEDoc, CDocument)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEDoc construction/destruction
+// CWinMIPS64Doc construction/destruction
 
-CWinEVEDoc::CWinEVEDoc()
+CWinMIPS64Doc::CWinMIPS64Doc()
 {
 	unsigned int i,codebits,databits;
 	char txt[12];
@@ -268,7 +268,7 @@ CWinEVEDoc::CWinEVEDoc()
 
 }
 
-CWinEVEDoc::~CWinEVEDoc()
+CWinMIPS64Doc::~CWinMIPS64Doc()
 {
 	CStdioFile file;
 	CString fname;
@@ -314,7 +314,7 @@ CWinEVEDoc::~CWinEVEDoc()
 	delete [] datalines;
 }
 
-void CWinEVEDoc::clear()
+void CWinMIPS64Doc::clear()
 {
 	cycles=instructions=loads=stores=branch_taken_stalls=branch_misprediction_stalls=0;
 	raw_stalls=waw_stalls=war_stalls=structural_stalls=0;
@@ -328,7 +328,7 @@ void CWinEVEDoc::clear()
 	stall_type=stalls=0;
 }
 
-BOOL CWinEVEDoc::OnNewDocument()
+BOOL CWinMIPS64Doc::OnNewDocument()
 {
 
 	if (!CDocument::OnNewDocument())
@@ -342,9 +342,9 @@ BOOL CWinEVEDoc::OnNewDocument()
 
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEDoc serialization
+// CWinMIPS64Doc serialization
 
-void CWinEVEDoc::Serialize(CArchive& ar)
+void CWinMIPS64Doc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -357,25 +357,25 @@ void CWinEVEDoc::Serialize(CArchive& ar)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEDoc diagnostics
+// CWinMIPS64Doc diagnostics
 
 #ifdef _DEBUG
-void CWinEVEDoc::AssertValid() const
+void CWinMIPS64Doc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void CWinEVEDoc::Dump(CDumpContext& dc) const
+void CWinMIPS64Doc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEDoc commands
+// CWinMIPS64Doc commands
 
 
-void CWinEVEDoc::OnFileReset() 
+void CWinMIPS64Doc::OnFileReset() 
 { // Reset the processor
 	unsigned int i;
 
@@ -399,7 +399,7 @@ void CWinEVEDoc::OnFileReset()
 
 }
 
-void CWinEVEDoc::OnFullReset() 
+void CWinMIPS64Doc::OnFullReset() 
 { // Reset Data Memory as well
 	unsigned i;
 	for (i=0;i<DATASIZE/8;i++) datalines[i]="";
@@ -408,7 +408,7 @@ void CWinEVEDoc::OnFullReset()
 	OnFileReset();	
 }
 
-void CWinEVEDoc::OnFileOpen() 
+void CWinMIPS64Doc::OnFileOpen() 
 {	
 	CFileDialog dlg(TRUE,"s","*.s");
 	CStdioFile last;
@@ -461,7 +461,7 @@ void CWinEVEDoc::OnFileOpen()
 	UpdateAllViews(NULL,1L);
 }
 
-void CWinEVEDoc::check_stalls(int status,char *str,int rawreg,char *txt)
+void CWinMIPS64Doc::check_stalls(int status,char *str,int rawreg,char *txt)
 {
 	char mess[100];
 	if (status==RAW)	
@@ -493,7 +493,7 @@ void CWinEVEDoc::check_stalls(int status,char *str,int rawreg,char *txt)
 	}
 }
 
-void CWinEVEDoc::process_result(RESULT *result,BOOL show)
+void CWinMIPS64Doc::process_result(RESULT *result,BOOL show)
 {
 	char txt[300];
 	CMainFrame* pFrame=(CMainFrame*) AfxGetApp()->m_pMainWnd;
@@ -588,7 +588,7 @@ void CWinEVEDoc::process_result(RESULT *result,BOOL show)
 	}
 }
 
-int CWinEVEDoc::update_io(processor *cpu)
+int CWinMIPS64Doc::update_io(processor *cpu)
 {
 	WORD32 func=*(WORD32 *)&cpu->mm[0];
 	int i,x,y,nlines,ncols,status=0;
@@ -682,7 +682,7 @@ int CWinEVEDoc::update_io(processor *cpu)
 	return status;
 }
 
-void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
+void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 {
 	int substage,stage;
 	unsigned int i,cc;
@@ -899,7 +899,7 @@ void CWinEVEDoc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 
 }
 
-int CWinEVEDoc::one_cycle(pipeline *pipe,processor *cpu,BOOL show)
+int CWinMIPS64Doc::one_cycle(pipeline *pipe,processor *cpu,BOOL show)
 {
 	int status=0;
 	RESULT result;
@@ -921,7 +921,7 @@ int CWinEVEDoc::one_cycle(pipeline *pipe,processor *cpu,BOOL show)
 	return status;
 }
 
-void CWinEVEDoc::OnExecuteSingle() 
+void CWinMIPS64Doc::OnExecuteSingle() 
 {
 	CMainFrame* pFrame=(CMainFrame*) AfxGetApp()->m_pMainWnd;
 	CStatusBar* pStatus=&pFrame->m_wndStatusBar;
@@ -934,7 +934,7 @@ void CWinEVEDoc::OnExecuteSingle()
 								// code window should be scrolled
 }
 
-void CWinEVEDoc::OnExecuteMulticycle() 
+void CWinMIPS64Doc::OnExecuteMulticycle() 
 {
 	CMainFrame* pFrame=(CMainFrame*) AfxGetApp()->m_pMainWnd;
 	CStatusBar* pStatus=&pFrame->m_wndStatusBar;
@@ -958,12 +958,12 @@ void CWinEVEDoc::OnExecuteMulticycle()
 								// code window should be scrolled
 }
 
-void CWinEVEDoc::OnExecuteStop() 
+void CWinMIPS64Doc::OnExecuteStop() 
 {
 	simulation_running=FALSE;
 }
 
-void CWinEVEDoc::OnExecuteRunto() 
+void CWinMIPS64Doc::OnExecuteRunto() 
 {
 	MSG message;
 	char buf[80];
@@ -1000,7 +1000,7 @@ void CWinEVEDoc::OnExecuteRunto()
 								// code window should be scrolled
 }
 
-int CWinEVEDoc::openfile(CString fname)
+int CWinMIPS64Doc::openfile(CString fname)
 {
 	unsigned int i;
 	int res;
@@ -1055,7 +1055,7 @@ int CWinEVEDoc::openfile(CString fname)
 // This function reads a line even if not termimated by CR
 //
 
-int CWinEVEDoc::mygets(char *line,int max,CFile *fp)
+int CWinMIPS64Doc::mygets(char *line,int max,CFile *fp)
 {
 	int i,bytes;
 	char ch;
@@ -1084,7 +1084,7 @@ int CWinEVEDoc::mygets(char *line,int max,CFile *fp)
 	return 0;
 }
 
-int CWinEVEDoc::openit(CString fname)
+int CWinMIPS64Doc::openit(CString fname)
 {
 	int i,j,k,gotline,lineptr,errors;
 	char preline[MAX_LINE+1];
@@ -1157,17 +1157,17 @@ int CWinEVEDoc::openit(CString fname)
 	return 0;
 }
 
-BOOL CWinEVEDoc::getcodesym(char *&ptr,WORD32 *m)
+BOOL CWinMIPS64Doc::getcodesym(char *&ptr,WORD32 *m)
 {
     return getsym(code_table,code_symptr,ptr,m);
 }
 
-BOOL CWinEVEDoc::getdatasym(char *&ptr,WORD32 *m)
+BOOL CWinMIPS64Doc::getdatasym(char *&ptr,WORD32 *m)
 {
     return getsym(data_table,data_symptr,ptr,m);
 }
 
-int CWinEVEDoc::instruction(char *start)
+int CWinMIPS64Doc::instruction(char *start)
 {
     int i=0;
     char text[10];    /* all instructions are 6 chars or less */
@@ -1189,7 +1189,7 @@ int CWinEVEDoc::instruction(char *start)
     return i;
 }
 
-BOOL CWinEVEDoc::directive(int pass,char *ptr,char *line)
+BOOL CWinMIPS64Doc::directive(int pass,char *ptr,char *line)
 { // process assembler directives. return number of bytes consumed
     
     BOOL zero,bs;
@@ -1559,7 +1559,7 @@ BOOL CWinEVEDoc::directive(int pass,char *ptr,char *line)
 
 // fill in symbol tables and check for syntax errors
 
-int CWinEVEDoc::first_pass(char *line,int lineptr)
+int CWinMIPS64Doc::first_pass(char *line,int lineptr)
 {
     int i,len;
     char *ptr=line;
@@ -1640,7 +1640,7 @@ int CWinEVEDoc::first_pass(char *line,int lineptr)
     return 1;
 }
 
-int CWinEVEDoc::second_pass(char *line,int /* lineptr */)
+int CWinMIPS64Doc::second_pass(char *line,int /* lineptr */)
 {
     WORD32 w,byte;
     WORD32 op,code_word=0;
@@ -1937,7 +1937,7 @@ int CWinEVEDoc::second_pass(char *line,int /* lineptr */)
     return ret_val;    
 }
 
-void CWinEVEDoc::OnFileMulti() 
+void CWinMIPS64Doc::OnFileMulti() 
 {
 	CMultiDialog dlg;
 
@@ -1946,7 +1946,7 @@ void CWinEVEDoc::OnFileMulti()
     multi=dlg.m_cycles;	
 }
 
-void CWinEVEDoc::OnFileMemory() 
+void CWinMIPS64Doc::OnFileMemory() 
 {
 	unsigned int i;
 	unsigned int codesize,datasize;
@@ -2011,52 +2011,52 @@ void CWinEVEDoc::OnFileMemory()
 
 // Disable everything while simulation is running
 
-void CWinEVEDoc::OnUpdateExecuteMulticycle(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateExecuteMulticycle(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running && !cpu.keyboard);	
 }
 
-void CWinEVEDoc::OnUpdateExecuteStop(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateExecuteStop(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(simulation_running);	
 }
 
-void CWinEVEDoc::OnUpdateExecuteRunto(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateExecuteRunto(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running && !cpu.keyboard);
 }
 
-void CWinEVEDoc::OnUpdateExecuteSingle(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateExecuteSingle(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running && !cpu.keyboard);
 }
 
-void CWinEVEDoc::OnUpdateFileMulti(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateFileMulti(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running);	
 }
 
-void CWinEVEDoc::OnUpdateFileMemory(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateFileMemory(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running);
 }
 
-void CWinEVEDoc::OnUpdateFileOpen(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateFileOpen(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running);
 }
 
-void CWinEVEDoc::OnUpdateFileReset(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateFileReset(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running);	
 }
 
-void CWinEVEDoc::OnUpdateFullReset(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateFullReset(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running);	
 }
 
-void CWinEVEDoc::OnReload() 
+void CWinMIPS64Doc::OnReload() 
 { // reload last file
 	int res;
 	char txt[512];
@@ -2071,51 +2071,51 @@ void CWinEVEDoc::OnReload()
 	}
 }
 
-void CWinEVEDoc::OnUpdateReload(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateReload(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(!simulation_running);
 	
 }
 
-void CWinEVEDoc::OnFileDelaySlot() 
+void CWinMIPS64Doc::OnFileDelaySlot() 
 {
 	if (delay_slot) delay_slot=FALSE;
 	else			{delay_slot=TRUE;}
 	OnFileReset();
 }
 
-void CWinEVEDoc::OnUpdateFileDelaySlot(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateFileDelaySlot(CCmdUI* pCmdUI) 
 {
 	pCmdUI->SetCheck(delay_slot);
 	pCmdUI->Enable(!branch_target_buffer);
 }
 
-void CWinEVEDoc::OnFileForwarding() 
+void CWinMIPS64Doc::OnFileForwarding() 
 {
 	if (forwarding) forwarding=FALSE;
 	else            forwarding=TRUE;
 	OnFileReset();
 }
 
-void CWinEVEDoc::OnUpdateFileForwarding(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateFileForwarding(CCmdUI* pCmdUI) 
 {
 	pCmdUI->SetCheck(forwarding);	
 }
 
-void CWinEVEDoc::OnBtb() 
+void CWinMIPS64Doc::OnBtb() 
 {
 	if (branch_target_buffer) branch_target_buffer=FALSE;
 	else			          {branch_target_buffer=TRUE;}
 	OnFileReset();
 }
 
-void CWinEVEDoc::OnUpdateBtb(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateBtb(CCmdUI* pCmdUI) 
 {
 	pCmdUI->SetCheck(branch_target_buffer);
 	pCmdUI->Enable(!delay_slot);
 }
 
-void CWinEVEDoc::OnFileRegistersAsNumbers() 
+void CWinMIPS64Doc::OnFileRegistersAsNumbers() 
 {
 	if (registers_as_numbers) registers_as_numbers=FALSE;
 	else            registers_as_numbers=TRUE;
@@ -2123,7 +2123,7 @@ void CWinEVEDoc::OnFileRegistersAsNumbers()
 
 }
 
-void CWinEVEDoc::OnUpdateRegistersAsNumbers(CCmdUI* pCmdUI) 
+void CWinMIPS64Doc::OnUpdateRegistersAsNumbers(CCmdUI* pCmdUI) 
 {
 	pCmdUI->SetCheck(registers_as_numbers);	
 }

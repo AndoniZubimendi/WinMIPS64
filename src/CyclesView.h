@@ -20,7 +20,7 @@ protected:
 
 // Attributes
 public:
-	CWinEVEDoc* GetDocument();
+	CWinMIPS64Doc* GetDocument();
 	WORD32 srow;
 	WORD32 nrow;
 	WORD32 scol;
@@ -57,8 +57,8 @@ protected:
 };
 
 #ifndef _DEBUG  // debug version in WinEVEView.cpp
-inline CWinEVEDoc* CCyclesView::GetDocument()
-   { return (CWinEVEDoc*)m_pDocument; }
+inline CWinMIPS64Doc* CCyclesView::GetDocument()
+   { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
 /////////////////////////////////////////////////////////////////////////////
 

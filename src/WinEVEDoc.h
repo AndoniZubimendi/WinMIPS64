@@ -1,9 +1,9 @@
-// WinEVEDoc.h : interface of the CWinEVEDoc class
+// WinEVEDoc.h : interface of the CWinMIPS64Doc class
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#if !defined(AFX_WINEVEDOC_H__ADC8A8BC_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_)
-#define AFX_WINEVEDOC_H__ADC8A8BC_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_
+#if !defined(AFX_WINMIPS64DOC_H__ADC8A8BC_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_)
+#define AFX_WINMIPS64DOC_H__ADC8A8BC_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_
 
 #if _MSC_VER >= 1000
 #pragma once
@@ -25,11 +25,11 @@
 
 #define SYMTABSIZE 1000
 
-class CWinEVEDoc : public CDocument
+class CWinMIPS64Doc : public CDocument
 {
 protected: // create from serialization only
-	CWinEVEDoc();
-	DECLARE_DYNCREATE(CWinEVEDoc)
+	CWinMIPS64Doc();
+	DECLARE_DYNCREATE(CWinMIPS64Doc)
 
 // Attributes
 public:
@@ -91,7 +91,7 @@ public:
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CWinEVEDoc)
+	//{{AFX_VIRTUAL(CWinMIPS64Doc)
 	public:
 	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);
@@ -99,7 +99,7 @@ public:
 
 // Implementation
 public:
-	virtual ~CWinEVEDoc();
+	virtual ~CWinMIPS64Doc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -124,7 +124,7 @@ protected:
 
 // Generated message map functions
 protected:
-	//{{AFX_MSG(CWinEVEDoc)
+	//{{AFX_MSG(CWinMIPS64Doc)
 	afx_msg void OnFileReset();
 	afx_msg void OnFileOpen();
 	afx_msg void OnExecuteSingle();
@@ -164,4 +164,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Developer Studio will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_WINEVEDOC_H__ADC8A8BC_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_)
+#endif // !defined(AFX_WINMIPS64DOC_H__ADC8A8BC_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_)

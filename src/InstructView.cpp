@@ -56,7 +56,7 @@ void CInstructView::OnInitialUpdate()
 
 void CInstructView::OnDraw(CDC* pDC)
 {
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	CPoint ps;
 	int cause,now;
 	
@@ -96,10 +96,10 @@ void CInstructView::Dump(CDumpContext& dc) const
 	CScrollView::Dump(dc);
 }
 
-CWinEVEDoc* CInstructView::GetDocument() // non-debug version is inline
+CWinMIPS64Doc* CInstructView::GetDocument() // non-debug version is inline
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinEVEDoc)));
-	return (CWinEVEDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinMIPS64Doc)));
+	return (CWinMIPS64Doc*)m_pDocument;
 }
 
 #endif //_DEBUG
@@ -111,7 +111,7 @@ void CInstructView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHi
 {
 	// TODO: Add your specialized code here and/or call the base class
 	CPoint ps;
-	CWinEVEDoc* pDoc=GetDocument();
+	CWinMIPS64Doc* pDoc=GetDocument();
 	CSize sizeTotal;
 	WORD32 entries=pDoc->entries;
 	if (lHint==2) return;

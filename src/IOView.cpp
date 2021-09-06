@@ -124,7 +124,7 @@ void CIOView::ComputeViewMetrics()
 
 void CIOView::OnDraw(CDC* pDC)
 {
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	int cursor_y;
 	CSize CharSize = GetCharSize();
 	CFont* pPreviousFont = pDC->SelectObject(GetFont());
@@ -257,10 +257,10 @@ void CIOView::Dump(CDumpContext& dc) const
 	CScrollView::Dump(dc);
 }
 
-CWinEVEDoc* CIOView::GetDocument() // non-debug version is inline
+CWinMIPS64Doc* CIOView::GetDocument() // non-debug version is inline
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinEVEDoc)));
-	return (CWinEVEDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinMIPS64Doc)));
+	return (CWinMIPS64Doc*)m_pDocument;
 }
 
 
@@ -290,7 +290,7 @@ void CIOView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo)
 void CIOView::OnUpdate(CView* /* pSender */, LPARAM /* lHint */, CObject* /* pHint */) 
 {
 	// TODO: Add your specialized code here and/or call the base class
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	CSize sizeTotal;
 	CSize CharSize = GetCharSize();
 
@@ -312,7 +312,7 @@ void CIOView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 
 //	char txt[20];
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	CSize CharSize=GetCharSize();
 	CPoint point;
 	DOUBLE64 number;
@@ -391,7 +391,7 @@ void CIOView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CIOView::OnSetFocus(CWnd* pOldWnd) 
 {
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	CScrollView::OnSetFocus(pOldWnd);
 	CreateSolidCaret (10, 2);
 	caretcount=0;

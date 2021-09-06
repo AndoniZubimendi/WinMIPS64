@@ -124,7 +124,7 @@ void CMainFrame::DataWindow()
 	CMDIChildWnd* pActiveChild=MDIGetActive();
 	CDocument* pDocument=pActiveChild->GetActiveDocument();
 
-	CDocTemplate *pTemplate=((CWinEVEApp *)AfxGetApp())->datatemp;
+	CDocTemplate *pTemplate=((CWinMIPS64App *)AfxGetApp())->datatemp;
 
 	CFrameWnd* pFrame=pTemplate->CreateNewFrame(pDocument,pActiveChild);
 	if (pFrame==NULL) AfxMessageBox("Failed to create Frame!");
@@ -137,7 +137,7 @@ void CMainFrame::CyclesWindow()
 	CMDIChildWnd* pActiveChild=MDIGetActive();
 	CDocument* pDocument=pActiveChild->GetActiveDocument();
 
-	CDocTemplate *pTemplate=((CWinEVEApp *)AfxGetApp())->cyclestemp;
+	CDocTemplate *pTemplate=((CWinMIPS64App *)AfxGetApp())->cyclestemp;
 
 	CFrameWnd* pFrame=pTemplate->CreateNewFrame(pDocument,pActiveChild);
 	if (pFrame==NULL) AfxMessageBox("Failed to create Frame!");
@@ -150,7 +150,7 @@ void CMainFrame::RegisterWindow()
 	CMDIChildWnd* pActiveChild=MDIGetActive();
 	CDocument* pDocument=pActiveChild->GetActiveDocument();
 
-	CDocTemplate *pTemplate=((CWinEVEApp *)AfxGetApp())->regtemp;
+	CDocTemplate *pTemplate=((CWinMIPS64App *)AfxGetApp())->regtemp;
 
 	CFrameWnd* pFrame=pTemplate->CreateNewFrame(pDocument,pActiveChild);
 	if (pFrame==NULL) AfxMessageBox("Failed to create Frame!");
@@ -165,7 +165,7 @@ void CMainFrame::StatWindow()
 	CMDIChildWnd* pActiveChild=MDIGetActive();
 	CDocument* pDocument=pActiveChild->GetActiveDocument();
 
-	CDocTemplate *pTemplate=((CWinEVEApp *)AfxGetApp())->stattemp;
+	CDocTemplate *pTemplate=((CWinMIPS64App *)AfxGetApp())->stattemp;
 
 	CFrameWnd* pFrame=pTemplate->CreateNewFrame(pDocument,pActiveChild);
 	if (pFrame==NULL) AfxMessageBox("Failed to create Frame!");
@@ -179,7 +179,7 @@ void CMainFrame::PipeWindow()
 	CMDIChildWnd* pActiveChild=MDIGetActive();
 	CDocument* pDocument=pActiveChild->GetActiveDocument();
 
-	CDocTemplate *pTemplate=((CWinEVEApp *)AfxGetApp())->pipetemp;
+	CDocTemplate *pTemplate=((CWinMIPS64App *)AfxGetApp())->pipetemp;
 
 	CFrameWnd* pFrame=pTemplate->CreateNewFrame(pDocument,pActiveChild);
 	if (pFrame==NULL) AfxMessageBox("Failed to create Frame!");
@@ -193,7 +193,7 @@ void CMainFrame::IOWindow()
 	CMDIChildWnd* pActiveChild=MDIGetActive();
 	CDocument* pDocument=pActiveChild->GetActiveDocument();
 
-	CDocTemplate *pTemplate=((CWinEVEApp *)AfxGetApp())->iotemp;
+	CDocTemplate *pTemplate=((CWinMIPS64App *)AfxGetApp())->iotemp;
 
 	CFrameWnd* pFrame=pTemplate->CreateNewFrame(pDocument,pActiveChild);
 	if (pFrame==NULL) AfxMessageBox("Failed to create Frame!");

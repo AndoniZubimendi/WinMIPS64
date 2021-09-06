@@ -28,7 +28,7 @@ protected:
 
 // Attributes
 public:
-	CWinEVEDoc* GetDocument();
+	CWinMIPS64Doc* GetDocument();
 // Operations
 public:
 	CFont*	  GetFont();
@@ -64,8 +64,8 @@ protected:
 
 
 #ifndef _DEBUG  // debug version in WinEVEView.cpp
-inline CWinEVEDoc* CIOView::GetDocument()
-   { return (CWinEVEDoc*)m_pDocument; }
+inline CWinMIPS64Doc* CIOView::GetDocument()
+   { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
 
 /////////////////////////////////////////////////////////////////////////////

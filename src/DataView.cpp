@@ -47,7 +47,7 @@ void CDataView::OnDraw(CDC* pDC)
 	unsigned int i,j,pos;
 	WORD64 bytes;
 
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc *pDoc = GetDocument();
 	char txt[400];
 	const char *linetext;
 	int len;
@@ -101,10 +101,10 @@ void CDataView::Dump(CDumpContext& dc) const
 	CScrollView::Dump(dc);
 }
 
-CWinEVEDoc* CDataView::GetDocument() // non-debug version is inline
+CWinMIPS64Doc* CDataView::GetDocument() // non-debug version is inline
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinEVEDoc)));
-	return (CWinEVEDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinMIPS64Doc)));
+	return (CWinMIPS64Doc*)m_pDocument;
 }
 #endif //_DEBUG
 
@@ -122,7 +122,7 @@ void CDataView::OnInitialUpdate()
 
 void CDataView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
 {	
-	CWinEVEDoc* pDoc=GetDocument();
+	CWinMIPS64Doc* pDoc=GetDocument();
 	CSize sizeTotal;
 
 	if (lHint==2) return;
@@ -139,7 +139,7 @@ void CDataView::OnLButtonDblClk(UINT /* nFlags */, CPoint point)
 {
 	CDataDialog dlg;
 	unsigned int addr=first+point.y/14;
-	CWinEVEDoc *pDoc=GetDocument();
+	CWinMIPS64Doc *pDoc=GetDocument();
 
 	char txt[20];
 	if (addr*STEP>=pDoc->DATASIZE) return;
@@ -192,7 +192,7 @@ void CDataView::OnRButtonDblClk(UINT /* nFlags */, CPoint point)
 	DOUBLE64 db;
 	double t;
 	unsigned int addr=first+point.y/14;
-	CWinEVEDoc *pDoc=GetDocument();
+	CWinMIPS64Doc *pDoc=GetDocument();
 
 	char txt[1000];
 	char txt1[1000];

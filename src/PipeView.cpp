@@ -47,7 +47,7 @@ void CPipeView::OnDraw(CDC* pDC)
 	unsigned int i,unit,shift;
 	CBrush brush;
 	char txt[80];
-	CWinEVEDoc* pDoc = GetDocument();
+	CWinMIPS64Doc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 
 	brush.CreateSolidBrush(YELLOW);
@@ -214,10 +214,10 @@ void CPipeView::Dump(CDumpContext& dc) const
 	CView::Dump(dc);
 }
 
-CWinEVEDoc* CPipeView::GetDocument() // non-debug version is inline
+CWinMIPS64Doc* CPipeView::GetDocument() // non-debug version is inline
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinEVEDoc)));
-	return (CWinEVEDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWinMIPS64Doc)));
+	return (CWinMIPS64Doc*)m_pDocument;
 }
 #endif //_DEBUG
 

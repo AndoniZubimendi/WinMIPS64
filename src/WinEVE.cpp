@@ -1,4 +1,4 @@
-// WinEVE.cpp : Defines the class behaviors for the application.
+// WinMIPS64.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -28,10 +28,10 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEApp
+// CWinMIPS64App
 
-BEGIN_MESSAGE_MAP(CWinEVEApp, CWinApp)
-	//{{AFX_MSG_MAP(CWinEVEApp)
+BEGIN_MESSAGE_MAP(CWinMIPS64App, CWinApp)
+	//{{AFX_MSG_MAP(CWinMIPS64App)
 	ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
 		// NOTE - the ClassWizard will add and remove mapping macros here.
 		//    DO NOT EDIT what you see in these blocks of generated code!
@@ -42,23 +42,23 @@ BEGIN_MESSAGE_MAP(CWinEVEApp, CWinApp)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEApp construction
+// CWinMIPS64App construction
 
-CWinEVEApp::CWinEVEApp()
+CWinMIPS64App::CWinMIPS64App()
 {
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// The one and only CWinEVEApp object
+// The one and only CWinMIPS64App object
 
-CWinEVEApp theApp;
+CWinMIPS64App theApp;
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEApp initialization
+// CWinMIPS64App initialization
 
-BOOL CWinEVEApp::InitInstance()
+BOOL CWinMIPS64App::InitInstance()
 {
 	AfxEnableControlContainer();
 
@@ -80,43 +80,43 @@ BOOL CWinEVEApp::InitInstance()
 	CMultiDocTemplate* pDocTemplate;
 	pDocTemplate = new CMultiDocTemplate(
 		IDR_WINEVETYPE,
-		RUNTIME_CLASS(CWinEVEDoc),
+		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CChildFrame), // custom MDI child frame
-		RUNTIME_CLASS(CWinEVEView));
+		RUNTIME_CLASS(CWinMIPS64View));
 	AddDocTemplate(pDocTemplate);
 	
 	regtemp=new CMultiDocTemplate(
 		IDR_WINEVETYPE,
-		RUNTIME_CLASS(CWinEVEDoc),
+		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CRegChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CRegView));
 	datatemp=new CMultiDocTemplate(
 		IDR_WINEVETYPE,
-		RUNTIME_CLASS(CWinEVEDoc),
+		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CDataChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CDataView));
 
 	stattemp=new CMultiDocTemplate(
 		IDR_WINEVETYPE,
-		RUNTIME_CLASS(CWinEVEDoc),
+		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CStatChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CStatView));
 
 	pipetemp=new CMultiDocTemplate(
 		IDR_WINEVETYPE,
-		RUNTIME_CLASS(CWinEVEDoc),
+		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CPipeChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CPipeView));
 
 	cyclestemp=new CMultiDocTemplate(
 		IDR_WINEVETYPE,
-		RUNTIME_CLASS(CWinEVEDoc),
+		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CCyclesChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CView));
 
 	iotemp=new CMultiDocTemplate(
 		IDR_WINEVETYPE,
-		RUNTIME_CLASS(CWinEVEDoc),
+		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CIOChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CIOView));
 
@@ -162,7 +162,7 @@ BOOL CWinEVEApp::InitInstance()
 	return TRUE;
 }
 
-int CWinEVEApp::ExitInstance()
+int CWinMIPS64App::ExitInstance()
 {
 	delete regtemp;
 	delete datatemp;
@@ -220,11 +220,11 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
 // App command to run the dialog
-void CWinEVEApp::OnAppAbout()
+void CWinMIPS64App::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// CWinEVEApp commands
+// CWinMIPS64App commands

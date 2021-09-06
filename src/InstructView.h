@@ -20,7 +20,7 @@ protected:
 
 // Attributes
 public:
-	CWinEVEDoc* GetDocument();
+	CWinMIPS64Doc* GetDocument();
 	unsigned int first;
 	unsigned int nlines;
 	CFont font;
@@ -52,8 +52,8 @@ protected:
 };
 
 #ifndef _DEBUG  // debug version in WinEVEView.cpp
-inline CWinEVEDoc* CInstructView::GetDocument()
-   { return (CWinEVEDoc*)m_pDocument; }
+inline CWinMIPS64Doc* CInstructView::GetDocument()
+   { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
