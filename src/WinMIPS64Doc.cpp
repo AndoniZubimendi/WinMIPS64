@@ -1,11 +1,11 @@
-// WinEVEDoc.cpp : implementation of the CWinMIPS64Doc class
+// WinMIPS64Doc.cpp : implementation of the CWinMIPS64Doc class
 //
 
 #include "stdafx.h"
-#include "WinEVE.h"
+#include "WinMIPS64.h"
 #include <string.h>
 
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 #include "utils.h"
 #include "MemDialog.h"
 #include "MultiDialog.h"

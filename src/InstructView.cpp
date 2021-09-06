@@ -2,10 +2,10 @@
 //
 
 #include "stdafx.h"
-#include "winEVE.h"
+#include "WinMIPS64.h"
 #include "InstructView.h"
 #include "utils.h"
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

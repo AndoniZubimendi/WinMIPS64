@@ -50,7 +50,7 @@ BEGIN
     "LANGUAGE 9, 1\r\n"
     "#pragma code_page(1252)\r\n"
     "#endif\r\n"
-    "#include ""res\\WinEVE.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""res\\WinMIPS64.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
     "#include ""afxres.rc""         // Standard components\r\n"
     "#endif\0"
 END
@@ -118,7 +118,7 @@ BEGIN
     END
 END
 
-IDR_WINEVETYPE MENU PRELOAD DISCARDABLE 
+IDR_WINMIPS64TYPE MENU PRELOAD DISCARDABLE 
 BEGIN
     POPUP "&Archivo"
     BEGIN
@@ -291,15 +291,15 @@ BEGIN
         BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "ESIM MFC Application\0"
+            VALUE "FileDescription", "WinMIPS64 MFC Application\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
-            VALUE "InternalName", "ESIM\0"
+            VALUE "InternalName", "WinMIPS64\0"
             VALUE "LegalCopyright", "Copyright Aria Research (c) 1999,2000\0"
             VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "WinEVE.EXE\0"
+            VALUE "OriginalFilename", "WinMIPS64.EXE\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "ESIM Application\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "ProductVersion", "1, 60, 0, 0\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -371,7 +371,7 @@ END
 STRINGTABLE PRELOAD DISCARDABLE 
 BEGIN
     IDR_MAINFRAME           "WinMIPS64 - MIPS64 Processor Simulator"
-    IDR_WINEVETYPE          "\nWinMIPS64\nWinMIPS64\n\n\nWinMIPS64.Document\nWinMIPS64 Document"
+    IDR_WINMIPS64TYPE          "\nWinMIPS64\nWinMIPS64\n\n\nWinMIPS64.Document\nWinMIPS64 Document"
 END
 
 STRINGTABLE PRELOAD DISCARDABLE 

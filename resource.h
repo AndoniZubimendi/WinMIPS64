@@ -1,10 +1,10 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by WinEVE.rc
+// Used by WinMIPS64.rc
 //
 #define IDD_ABOUTBOX                    100
 #define IDR_MAINFRAME                   128
-#define IDR_WINEVETYPE                  129
+#define IDR_WINMIPS64TYPE               129
 #define IDD_REGISTER                    130
 #define IDD_MEMORY                      131
 #define IDD_ARCHITECTURE                131

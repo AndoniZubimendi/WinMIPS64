@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "WinEVE.h"
+#include "WinMIPS64.h"
 #include "RegDialog.h"
 #include "FontCtrl.h"
 

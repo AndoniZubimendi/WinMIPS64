@@ -6,7 +6,7 @@
 #endif // _MSC_VER >= 1000
 // RegView.h : header file
 //
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 /////////////////////////////////////////////////////////////////////////////
 // CRegView view
 
@@ -50,7 +50,7 @@ protected:
 };
 
 
-#ifndef _DEBUG  // debug version in WinEVEView.cpp
+#ifndef _DEBUG  // debug version in RegView.cpp
 inline CWinMIPS64Doc* CRegView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif

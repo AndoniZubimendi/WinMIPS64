@@ -10,7 +10,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // CCyclesView view
 
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 
 class CCyclesView : public CScrollView
 {
@@ -56,7 +56,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 };
 
-#ifndef _DEBUG  // debug version in WinEVEView.cpp
+#ifndef _DEBUG  // debug version in CyclesView.cpp
 inline CWinMIPS64Doc* CCyclesView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif

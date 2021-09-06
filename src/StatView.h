@@ -10,7 +10,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // CStatView view
 
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 
 class CStatView : public CScrollView
 {
@@ -50,7 +50,7 @@ protected:
 };
 
 
-#ifndef _DEBUG  // debug version in WinEVEView.cpp
+#ifndef _DEBUG  // debug version in StatView.cpp
 inline CWinMIPS64Doc* CStatView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif

@@ -10,7 +10,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // CIOView view
 
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 
 #define GSXY 50
 
@@ -63,7 +63,7 @@ protected:
 };
 
 
-#ifndef _DEBUG  // debug version in WinEVEView.cpp
+#ifndef _DEBUG  // debug version in IOView.cpp
 inline CWinMIPS64Doc* CIOView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif

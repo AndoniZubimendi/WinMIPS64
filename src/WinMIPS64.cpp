@@ -2,12 +2,12 @@
 //
 
 #include "stdafx.h"
-#include "WinEVE.h"
+#include "WinMIPS64.h"
 
 #include "MainFrm.h"
 #include "ChildFrm.h"
-#include "WinEVEDoc.h"
-#include "WinEVEView.h"
+#include "WinMIPS64Doc.h"
+#include "WinMIPS64View.h"
 #include "DataView.h"
 #include "RegView.h"
 #include "StatView.h"
@@ -79,43 +79,43 @@ BOOL CWinMIPS64App::InitInstance()
 
 	CMultiDocTemplate* pDocTemplate;
 	pDocTemplate = new CMultiDocTemplate(
-		IDR_WINEVETYPE,
+		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CChildFrame), // custom MDI child frame
 		RUNTIME_CLASS(CWinMIPS64View));
 	AddDocTemplate(pDocTemplate);
 	
 	regtemp=new CMultiDocTemplate(
-		IDR_WINEVETYPE,
+		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CRegChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CRegView));
 	datatemp=new CMultiDocTemplate(
-		IDR_WINEVETYPE,
+		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CDataChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CDataView));
 
 	stattemp=new CMultiDocTemplate(
-		IDR_WINEVETYPE,
+		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CStatChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CStatView));
 
 	pipetemp=new CMultiDocTemplate(
-		IDR_WINEVETYPE,
+		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CPipeChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CPipeView));
 
 	cyclestemp=new CMultiDocTemplate(
-		IDR_WINEVETYPE,
+		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CCyclesChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CView));
 
 	iotemp=new CMultiDocTemplate(
-		IDR_WINEVETYPE,
+		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CIOChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CIOView));

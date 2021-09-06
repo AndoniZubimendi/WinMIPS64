@@ -10,7 +10,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // CPipeView view
 
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 
 class CPipeView : public CView
 {
@@ -52,7 +52,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 };
 
-#ifndef _DEBUG  // debug version in WinEVEView.cpp
+#ifndef _DEBUG  // debug version in PipeView.cpp
 inline CWinMIPS64Doc* CPipeView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif

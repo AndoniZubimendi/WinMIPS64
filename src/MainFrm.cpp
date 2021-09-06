@@ -2,12 +2,12 @@
 //
 
 #include "stdafx.h"
-#include "WinEVE.h"
+#include "WinMIPS64.h"
 
 #include "MainFrm.h"
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 #include "RegView.h"
-#include "WinEVEView.h"
+#include "WinMIPS64View.h"
 #include "DataView.h"
 
 #ifdef _DEBUG

@@ -1,4 +1,4 @@
-// WinEVEDoc.h : interface of the CWinMIPS64Doc class
+// WinMIPS64Doc.h : interface of the CWinMIPS64Doc class
 //
 /////////////////////////////////////////////////////////////////////////////
 

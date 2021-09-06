@@ -2,9 +2,9 @@
 //
 
 #include "stdafx.h"
-#include "winEVE.h"
+#include "WinMIPS64.h"
 #include "CyclesView.h"
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 #include "utils.h"
 
 #ifdef _DEBUG

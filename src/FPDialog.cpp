@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "wineve.h"
+#include "WinMIPS64.h"
 #include "FPDialog.h"
 
 #ifdef _DEBUG

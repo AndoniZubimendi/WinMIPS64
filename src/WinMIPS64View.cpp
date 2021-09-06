@@ -2,10 +2,10 @@
 //
 
 #include "stdafx.h"
-#include "WinEVE.h"
+#include "WinMIPS64.h"
 
-#include "WinEVEDoc.h"
-#include "WinEVEView.h"
+#include "WinMIPS64Doc.h"
+#include "WinMIPS64View.h"
 #include "MainFrm.h"
 #include "utils.h"
 

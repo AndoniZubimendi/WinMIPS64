@@ -2,9 +2,9 @@
 //
 
 #include "stdafx.h"
-#include "WinEVE.h"
+#include "WinMIPS64.h"
 #include "DataView.h"
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 #include "utils.h"
 #include "DataDialog.h"
 #include "FPDialog.h"

@@ -10,7 +10,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // CDataView view
 
-#include "WinEVEDoc.h"
+#include "WinMIPS64Doc.h"
 
 class CDataView : public CScrollView
 {
@@ -55,7 +55,7 @@ protected:
 };
 
 
-#ifndef _DEBUG  // debug version in WinEVEView.cpp
+#ifndef _DEBUG  // debug version in DataView.cpp
 inline CWinMIPS64Doc* CDataView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
