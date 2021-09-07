@@ -129,7 +129,7 @@ void CIOView::OnDraw(CDC* pDC)
 	CSize CharSize = GetCharSize();
 	CFont* pPreviousFont = pDC->SelectObject(GetFont());
 	CPen* pPreviousPen= pDC->SelectObject(GetPen());
-	CString line;
+	CString lineaux;
 	CString string=pDoc->cpu.Terminal;
 	CPoint ps;
 	int i,beg,cr,x,y;
@@ -176,13 +176,13 @@ void CIOView::OnDraw(CDC* pDC)
 		cr=string.Find('\n',beg);
 		if (cr<0)
 		{
-			line=string.Mid(beg,string.GetLength());
-			pDC->TextOut(0,cursor_y,line);
+			lineaux=string.Mid(beg,string.GetLength());
+			pDC->TextOut(0,cursor_y,lineaux);
 			break;
 		}
 
-		line=string.Mid(beg,cr-beg);
-		pDC->TextOut(0,cursor_y,line);
+		lineaux=string.Mid(beg,cr-beg);
+		pDC->TextOut(0,cursor_y,lineaux);
 
 		beg=cr+1;
 		cursor_y+=CharSize.cy;

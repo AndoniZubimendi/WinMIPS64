@@ -588,38 +588,38 @@ void CWinMIPS64Doc::process_result(RESULT *result,BOOL show)
 	}
 }
 
-int CWinMIPS64Doc::update_io(processor *cpu)
+int CWinMIPS64Doc::update_io(processor *cpuarg)
 {
-	WORD32 func=*(WORD32 *)&cpu->mm[0];
+	WORD32 func=*(WORD32 *)&cpuarg->mm[0];
 	int i,x,y,nlines,ncols,status=0;
 
 	if (!func) return status;
 
 	char txt[30];
 	DOUBLE64 fp;
-	fp.u=*(WORD64 *)&cpu->mm[8]; 
+	fp.u=*(WORD64 *)&cpuarg->mm[8]; 
 
 	switch (func)
 	{
 	case (WORD32)1:
 		sprintf_s(txt,30,"%I64u\n",fp.u);
-		cpu->Terminal+=txt;
+		cpuarg->Terminal+=txt;
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)2:
 		sprintf_s(txt,30,"%I64d\n",fp.s);
-		cpu->Terminal+=txt;
+		cpuarg->Terminal+=txt;
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)3:
 		sprintf_s(txt,30,"%lf\n",fp.d);
-		cpu->Terminal+=txt;
+		cpuarg->Terminal+=txt;
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)4:
 // need to test here if fp.u is a legal address!
-        if (fp.u<cpu->datasize) {
-        	cpu->Terminal = cpu->Terminal + &cpu->data[fp.u];
+        if (fp.u<cpuarg->datasize) {
+        	cpuarg->Terminal = cpuarg->Terminal + &cpuarg->data[fp.u];
         }
         UpdateAllViews(NULL,2);
 		break;
@@ -628,33 +628,33 @@ int CWinMIPS64Doc::update_io(processor *cpu)
 
 		y=(DWORD32)((fp.u>>32)&255);
 		x=(DWORD32)((fp.u>>40)&255);
-		cpu->drawit=TRUE;
+		cpuarg->drawit=TRUE;
 //			char txt[80];
 //			sprintf(txt,"%d %d",x,y);
 //			AfxMessageBox(txt);
 
 		if (x<GSXY && y<GSXY)
 		{
-			cpu->screen[GSXY*y+x]=(WORD32)fp.u;
+			cpuarg->screen[GSXY*y+x]=(WORD32)fp.u;
 		}
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)6:
-		cpu->Terminal="";
-		cpu->nlines=0; 
+		cpuarg->Terminal="";
+		cpuarg->nlines=0; 
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)7:
-		for (i=0;i<GSXY*GSXY;i++) cpu->screen[i]=WHITE;
-		cpu->drawit=FALSE;
+		for (i=0;i<GSXY*GSXY;i++) cpuarg->screen[i]=WHITE;
+		cpuarg->drawit=FALSE;
 		UpdateAllViews(NULL,2);
 		break;
 	case (WORD32)8:
-		cpu->keyboard=1;
+		cpuarg->keyboard=1;
 		status=1;
 		break;
 	case (WORD32)9:
-		cpu->keyboard=2;
+		cpuarg->keyboard=2;
 		status=1;
 		break;
 	default:
@@ -663,9 +663,9 @@ int CWinMIPS64Doc::update_io(processor *cpu)
 
 	nlines=0;
 	ncols=0;
-	for (i=0;i<cpu->Terminal.GetLength();i++)
+	for (i=0;i<cpuarg->Terminal.GetLength();i++)
 	{
-		if (cpu->Terminal[i]=='\n')
+		if (cpuarg->Terminal[i]=='\n')
 		{
 			nlines++;
 			ncols=0;
@@ -673,16 +673,16 @@ int CWinMIPS64Doc::update_io(processor *cpu)
 		else
 			ncols++;
 	}
-	cpu->nlines=nlines;
-	cpu->ncols=ncols;
+	cpuarg->nlines=nlines;
+	cpuarg->ncols=ncols;
 	
 //	UpdateAllViews(NULL,1L);
 
-	*(WORD32 *)&cpu->mm[0]=0;
+	*(WORD32 *)&cpuarg->mm[0]=0;
 	return status;
 }
 
-void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
+void CWinMIPS64Doc::update_history(pipeline *pipearg,processor *cpuarg,RESULT *result)
 {
 	int substage,stage;
 	unsigned int i,cc;
@@ -709,9 +709,9 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 		{
 
 		case IFETCH:
-			if (pipe->if_id.active)
+			if (pipearg->if_id.active)
 			{
-				if (pipe->if_id.IR==previous)
+				if (pipearg->if_id.IR==previous)
 				{
 
 					history[i].status[cc].stage=IDECODE;
@@ -732,27 +732,27 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 		case IDECODE:
 			passed=FALSE;
 			
-			if (pipe->integer.active && pipe->integer.IR==previous && result->ID!=STALLED)
+			if (pipearg->integer.active && pipearg->integer.IR==previous && result->ID!=STALLED)
 			{
 				passed=TRUE;
 				history[i].status[cc].stage=INTEX;
 				history[i].status[cc].cause=0;
 			}
-			if (pipe->m[0].active && pipe->m[0].IR==previous && result->ID!=STALLED)
+			if (pipearg->m[0].active && pipearg->m[0].IR==previous && result->ID!=STALLED)
 			{
 				passed=TRUE;
 				history[i].status[cc].stage=MULEX;
 				history[i].status[cc].substage=0;
 				history[i].status[cc].cause=0;
 			}
-			if (pipe->a[0].active && pipe->a[0].IR==previous && result->ID!=STALLED)
+			if (pipearg->a[0].active && pipearg->a[0].IR==previous && result->ID!=STALLED)
 			{
 				passed=TRUE;
 				history[i].status[cc].stage=ADDEX;
 				history[i].status[cc].substage=0;
 				history[i].status[cc].cause=0;
 			}
-			if (pipe->div.active && pipe->div.IR==previous && result->ID!=STALLED)
+			if (pipearg->div.active && pipearg->div.IR==previous && result->ID!=STALLED)
 			{
 				passed=TRUE;
 				history[i].status[cc].stage=DIVEX;
@@ -766,7 +766,7 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			}
 			break;
 		case INTEX:
-			if (pipe->ex_mem.active && pipe->ex_mem.IR==previous)
+			if (pipearg->ex_mem.active && pipearg->ex_mem.IR==previous)
 			{
 				history[i].status[cc].stage=MEMORY;
 				history[i].status[cc].cause=0;
@@ -779,9 +779,9 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			break;
 
 		case MULEX:
-			if (substage==pipe->MUL_LATENCY-1)
+			if (substage==pipearg->MUL_LATENCY-1)
 			{
-				if (pipe->ex_mem.active && pipe->ex_mem.IR==previous)
+				if (pipearg->ex_mem.active && pipearg->ex_mem.IR==previous)
 				{
 					history[i].status[cc].stage=MEMORY;
 					history[i].status[cc].cause=0;
@@ -795,7 +795,7 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			}
 			else
 			{
-				if (pipe->m[substage+1].active && pipe->m[substage+1].IR==previous)
+				if (pipearg->m[substage+1].active && pipearg->m[substage+1].IR==previous)
 				{
 					history[i].status[cc].stage=MULEX;
 					history[i].status[cc].substage= (BYTE) (substage + 1);
@@ -811,9 +811,9 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			break;
 
 		case ADDEX:
-			if (substage==pipe->ADD_LATENCY-1)
+			if (substage==pipearg->ADD_LATENCY-1)
 			{
-				if (pipe->ex_mem.active && pipe->ex_mem.IR==previous)
+				if (pipearg->ex_mem.active && pipearg->ex_mem.IR==previous)
 				{
 					history[i].status[cc].stage=MEMORY;
 					history[i].status[cc].cause=0;
@@ -827,7 +827,7 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			}
 			else
 			{
-				if (pipe->a[substage+1].active && pipe->a[substage+1].IR==previous)
+				if (pipearg->a[substage+1].active && pipearg->a[substage+1].IR==previous)
 				{
 					history[i].status[cc].stage=ADDEX;
 					history[i].status[cc].substage=(BYTE) (substage + 1);
@@ -842,7 +842,7 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			}
 			break;
 		case DIVEX:
-			if (pipe->ex_mem.active && pipe->ex_mem.IR==previous)
+			if (pipearg->ex_mem.active && pipearg->ex_mem.IR==previous)
 			{
 				history[i].status[cc].stage=MEMORY;
 				history[i].status[cc].cause=0;
@@ -855,7 +855,7 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 			break;
 
 		case MEMORY:
-			if (pipe->mem_wb.active && pipe->mem_wb.IR==previous)
+			if (pipearg->mem_wb.active && pipearg->mem_wb.IR==previous)
 			{
 				history[i].status[cc].stage=WRITEB;
 				history[i].status[cc].cause=0;
@@ -880,9 +880,9 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 
 // make a new entry
 //	if (cpu->PC!=history[entries-1].IR)
-	if ((result->ID==OK || result->ID==EMPTY || cpu->PC!=history[entries-1].IR) && pipe->active)
+	if ((result->ID==OK || result->ID==EMPTY || cpuarg->PC!=history[entries-1].IR) && pipearg->active)
 	{
-		history[entries].IR=cpu->PC;
+		history[entries].IR=cpuarg->PC;
 		history[entries].status[0].stage=IFETCH;
 		history[entries].status[0].cause=0;
 		history[entries].start_cycle=cycles;
@@ -899,22 +899,22 @@ void CWinMIPS64Doc::update_history(pipeline *pipe,processor *cpu,RESULT *result)
 
 }
 
-int CWinMIPS64Doc::one_cycle(pipeline *pipe,processor *cpu,BOOL show)
+int CWinMIPS64Doc::one_cycle(pipeline *pipearg,processor *cpuarg,BOOL show)
 {
 	int status=0;
 	RESULT result;
 
-	if (cpu->status==HALTED) return HALTED;
+	if (cpuarg->status==HALTED) return HALTED;
 
-	status=clock_tick(pipe,cpu,forwarding,delay_slot,branch_target_buffer,&result);
+	status=clock_tick(pipearg,cpuarg,forwarding,delay_slot,branch_target_buffer,&result);
 
 	cycles++;
 	process_result(&result,show);
-	update_history(pipe,cpu,&result);
-	if (update_io(cpu)) return WAITING_FOR_INPUT;
+	update_history(pipearg,cpuarg,&result);
+	if (update_io(cpuarg)) return WAITING_FOR_INPUT;
 	if (status==HALTED) 
 	{
-		cpu->status=HALTED;
+		cpuarg->status=HALTED;
 		return HALTED;
 	}
 
@@ -1032,7 +1032,8 @@ int CWinMIPS64Doc::openfile(CString fname)
 	if (res==1)
 	{
 		char txt[512];
-		sprintf_s(txt,512,"No se pudo abrir el archivo %s",fname);
+		CT2A fname_ascii(fname);
+		sprintf_s(txt,512,"No se pudo abrir el archivo %s",fname_ascii.m_psz);
 		AfxMessageBox(txt,MB_OK|MB_ICONEXCLAMATION);
 		return res;
 	}
@@ -2066,7 +2067,8 @@ void CWinMIPS64Doc::OnReload()
 	if (res==0) 
 	{
 	//	AfxGetMainWnd()->SetWindowText(lastfile);
-		sprintf_s(txt, 512, "Archivo cargado - %s",lastfile);
+		CT2A lastfilee_ascii(lastfile);
+		sprintf_s(txt, 512, "Archivo cargado - %s", lastfilee_ascii.m_psz);
 		pStatus->SetPaneText(0,txt);
 	}
 }

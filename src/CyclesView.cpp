@@ -197,7 +197,6 @@ void CCyclesView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint
 		srow=ps.y/14;
 		scol=ps.x/32;
 
-		CRect sz;
 		GetClientRect(&sz);
 		nrow=1+sz.Height()/14;
 		ncol=1+sz.Width()/32;
