@@ -13,7 +13,6 @@
 #include "StatView.h"
 #include "IOView.h"
 #include "PipeView.h"
-#include "CyclesView.h"
 #include "RegChildFrm.h"
 #include "DataChildFrm.h"
 #include "StatChildFrm.h"

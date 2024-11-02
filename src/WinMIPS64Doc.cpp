@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "WinMIPS64.h"
-#include <string.h>
+#include <cstring>
 
 #include "WinMIPS64Doc.h"
 #include "utils.h"

@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-#include "WinMIPS64.h"
 #include "RegDialog.h"
 
 #include "RegView.h"

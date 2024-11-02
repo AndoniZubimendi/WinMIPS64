@@ -42,9 +42,6 @@
 */
 
 #include "stdafx.h"
-#include <math.h>
-#include <string.h>
-#include <stdlib.h>
 #include "utils.h"
 
 /* get instruction type */

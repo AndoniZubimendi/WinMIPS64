@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-#include "WinMIPS64.h"
 #include "DataView.h"
 #include "WinMIPS64Doc.h"
 #include "utils.h"

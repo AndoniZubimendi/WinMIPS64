@@ -141,12 +141,12 @@ protected:
 	afx_msg void OnUpdateFileMemory(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateFileOpen(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateFileReset(CCmdUI* pCmdUI);
-	afx_msg void OnUpdateExecuteInterrupt(CCmdUI* pCmdUI);
+//	afx_msg void OnUpdateExecuteInterrupt(CCmdUI* pCmdUI);
 	afx_msg void OnFullReset();
 	afx_msg void OnUpdateFullReset(CCmdUI* pCmdUI);
 	afx_msg void OnReload();
 	afx_msg void OnUpdateReload(CCmdUI* pCmdUI);
-	afx_msg void OnConfigureWordlength();
+//	afx_msg void OnConfigureWordlength();
 	afx_msg void OnFileDelaySlot();
 	afx_msg void OnUpdateFileDelaySlot(CCmdUI* pCmdUI);
 	afx_msg void OnFileForwarding();

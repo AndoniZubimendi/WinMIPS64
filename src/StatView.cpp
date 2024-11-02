@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-#include "WinMIPS64.h"
 #include "StatView.h"
 
 #ifdef _DEBUG
