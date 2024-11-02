@@ -1,11 +1,4 @@
-#if !defined(AFX_INSTRUCTVIEW_H__FD4DCC83_5931_11D7_B885_00C04F2AADC6__INCLUDED_)
-#define AFX_INSTRUCTVIEW_H__FD4DCC83_5931_11D7_B885_00C04F2AADC6__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
-// InstructView.h : header file
-//
 
 /////////////////////////////////////////////////////////////////////////////
 // CInstructView view
@@ -55,10 +48,3 @@ protected:
 inline CWinMIPS64Doc* CInstructView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
-
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_INSTRUCTVIEW_H__FD4DCC83_5931_11D7_B885_00C04F2AADC6__INCLUDED_)

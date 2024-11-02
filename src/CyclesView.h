@@ -1,11 +1,4 @@
-#if !defined(AFX_CYCLESVIEW_H__FD4DCC82_5931_11D7_B885_00C04F2AADC6__INCLUDED_)
-#define AFX_CYCLESVIEW_H__FD4DCC82_5931_11D7_B885_00C04F2AADC6__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
-// CyclesView.h : header file
-//
 
 /////////////////////////////////////////////////////////////////////////////
 // CCyclesView view
@@ -60,9 +53,3 @@ protected:
 inline CWinMIPS64Doc* CCyclesView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_CYCLESVIEW_H__FD4DCC82_5931_11D7_B885_00C04F2AADC6__INCLUDED_)

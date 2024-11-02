@@ -1,11 +1,4 @@
-#if !defined(AFX_PIPEVIEW_H__055555E2_52E0_11D7_B884_00C04F2AADC6__INCLUDED_)
-#define AFX_PIPEVIEW_H__055555E2_52E0_11D7_B884_00C04F2AADC6__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
-// PipeView.h : header file
-//
 
 /////////////////////////////////////////////////////////////////////////////
 // CPipeView view
@@ -56,9 +49,3 @@ protected:
 inline CWinMIPS64Doc* CPipeView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_PIPEVIEW_H__055555E2_52E0_11D7_B884_00C04F2AADC6__INCLUDED_)

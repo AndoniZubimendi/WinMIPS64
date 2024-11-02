@@ -1,5 +1,4 @@
-#ifndef MY_TYPES
-#define MY_TYPES
+#pragma once
 
 //
 // Useful types
@@ -385,4 +384,3 @@ struct
 	entry status[500];
 } typedef record;
 
-#endif

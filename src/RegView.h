@@ -1,11 +1,5 @@
-#if !defined(AFX_REGVIEW_H__597594E4_CD9E_11D3_9351_00A024DFE8FB__INCLUDED_)
-#define AFX_REGVIEW_H__597594E4_CD9E_11D3_9351_00A024DFE8FB__INCLUDED_
-
-#if _MSC_VER >= 1000
 #pragma once
-#endif // _MSC_VER >= 1000
-// RegView.h : header file
-//
+
 #include "WinMIPS64Doc.h"
 /////////////////////////////////////////////////////////////////////////////
 // CRegView view
@@ -54,9 +48,3 @@ protected:
 inline CWinMIPS64Doc* CRegView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_REGVIEW_H__597594E4_CD9E_11D3_9351_00A024DFE8FB__INCLUDED_)

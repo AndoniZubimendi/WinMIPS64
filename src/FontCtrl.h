@@ -1,9 +1,4 @@
-#if !defined(AFX_FONTCTRL_H__CA4DE73C_CDC9_11D3_B261_00104BB13A66__INCLUDED_)
-#define AFX_FONTCTRL_H__CA4DE73C_CDC9_11D3_B261_00104BB13A66__INCLUDED_
-
-#if _MSC_VER >= 1000
 #pragma once
-#endif // _MSC_VER >= 1000
 
 ///////////////////////////////////////////////////////////////////////////////
 // class CFontCtrl
@@ -204,9 +199,3 @@ template<class BASE_TYPE> class CBoldCtrl : public CFontCtrlEx<BASE_TYPE, FC_FON
 template<class BASE_TYPE> class CItalicCtrl : public CFontCtrlEx<BASE_TYPE, FC_FONT_ITALIC>{};
 template<class BASE_TYPE> class CUnderlineCtrl : public CFontCtrlEx<BASE_TYPE, FC_FONT_UNDERLINE>{};
 template<class BASE_TYPE> class CStrikeoutCtrl : public CFontCtrlEx<BASE_TYPE, FC_FONT_STRIKEOUT>{};
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_FONTCTRL_H__CA4DE73C_CDC9_11D3_B261_00104BB13A66__INCLUDED_)
-

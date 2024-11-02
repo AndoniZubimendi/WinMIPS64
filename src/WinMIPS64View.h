@@ -2,12 +2,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#if !defined(AFX_WINMIPS64VIEW_H__ADC8A8BE_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_)
-#define AFX_WINMIPS64VIEW_H__ADC8A8BE_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_
-
-#if _MSC_VER >= 1000
 #pragma once
-#endif // _MSC_VER >= 1000
 
 class CWinMIPS64View : public CScrollView
 {
@@ -58,10 +53,3 @@ protected:
 inline CWinMIPS64Doc* CWinMIPS64View::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
-
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_WINMIPS64VIEW_H__ADC8A8BE_CA8B_11D3_934C_00A024DFE8FB__INCLUDED_)

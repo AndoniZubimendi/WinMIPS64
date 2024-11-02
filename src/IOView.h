@@ -1,11 +1,4 @@
-#if !defined(AFX_IOVIEW_H__AA5BC073_731B_49B7_BF87_3D217924357D__INCLUDED_)
-#define AFX_IOVIEW_H__AA5BC073_731B_49B7_BF87_3D217924357D__INCLUDED_
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
-// IOView.h : header file
-//
 
 /////////////////////////////////////////////////////////////////////////////
 // CIOView view
@@ -67,10 +60,3 @@ protected:
 inline CWinMIPS64Doc* CIOView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
-
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_IOVIEW_H__AA5BC073_731B_49B7_BF87_3D217924357D__INCLUDED_)

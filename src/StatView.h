@@ -1,11 +1,4 @@
-#if !defined(AFX_STATVIEW_H__597594E5_CD9E_11D3_9351_00A024DFE8FB__INCLUDED_)
-#define AFX_STATVIEW_H__597594E5_CD9E_11D3_9351_00A024DFE8FB__INCLUDED_
-
-#if _MSC_VER >= 1000
 #pragma once
-#endif // _MSC_VER >= 1000
-// StatView.h : header file
-//
 
 /////////////////////////////////////////////////////////////////////////////
 // CStatView view
@@ -54,9 +47,3 @@ protected:
 inline CWinMIPS64Doc* CStatView::GetDocument()
    { return (CWinMIPS64Doc*)m_pDocument; }
 #endif
-/////////////////////////////////////////////////////////////////////////////
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_STATVIEW_H__597594E5_CD9E_11D3_9351_00A024DFE8FB__INCLUDED_)
