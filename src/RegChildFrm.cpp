@@ -25,7 +25,7 @@ CRegChildFrm::~CRegChildFrm()
 }
 
 
-static char *regtit="Registros";
+static char* regtit = "Registros";
 
 BEGIN_MESSAGE_MAP(CRegChildFrm, CMDIChildWnd)
 	//{{AFX_MSG_MAP(CRegChildFrm)
@@ -36,21 +36,21 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CRegChildFrm message handlers
 
-BOOL CRegChildFrm::PreCreateWindow(CREATESTRUCT& cs) 
+BOOL CRegChildFrm::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	
-	cs.style=WS_OVERLAPPEDWINDOW|WS_MAXIMIZE|WS_CHILD;
-	cs.lpszName=regtit;
+
+	cs.style = WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_CHILD;
+	cs.lpszName = regtit;
 	return CMDIChildWnd::PreCreateWindow(cs);
 }
 
-void CRegChildFrm::ActivateFrame(int nCmdShow) 
+void CRegChildFrm::ActivateFrame(int nCmdShow)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	CMenu *pSysMenu=GetSystemMenu(FALSE);
-	pSysMenu->EnableMenuItem(6,MF_BYPOSITION|MF_GRAYED);
-	SetIcon(LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDI_ICON2)),TRUE);	
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	pSysMenu->EnableMenuItem(6, MF_BYPOSITION | MF_GRAYED);
+	SetIcon(LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ICON2)), TRUE);
 	CMDIChildWnd::ActivateFrame(nCmdShow);
 
 }

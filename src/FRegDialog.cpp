@@ -46,41 +46,41 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CFRegDialog message handlers
 
-void CFRegDialog::OnPaint() 
+void CFRegDialog::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 	CFont m_Font;
 
-	m_Font.CreateFont(15,0,0,0,400,FALSE,FALSE,
-		0,ANSI_CHARSET,OUT_DEFAULT_PRECIS,
-		CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,
-		DEFAULT_PITCH|FF_MODERN,"Courier New");
+	m_Font.CreateFont(15, 0, 0, 0, 400, FALSE, FALSE,
+		0, ANSI_CHARSET, OUT_DEFAULT_PRECIS,
+		CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
+		DEFAULT_PITCH | FF_MODERN, "Courier New");
 
-//	m_Font.CreatePointFont(100,"Courier");
-	CFontCtrl<CEdit> * pEdit;
+	//	m_Font.CreatePointFont(100,"Courier");
+	CFontCtrl<CEdit>* pEdit;
 	pEdit = (CFontCtrl<CEdit> *)GetDlgItem(IDC_FREG);
-	pEdit->SetFont(&m_Font,FALSE);
+	pEdit->SetFont(&m_Font, FALSE);
 	m_Font.DeleteObject();
-//	GetDlgItem(IDC_REG)->SetFocus();	
-	// TODO: Add your message handler code here
-	
-	// Do not call CDialog::OnPaint() for painting messages
+	//	GetDlgItem(IDC_REG)->SetFocus();	
+		// TODO: Add your message handler code here
+
+		// Do not call CDialog::OnPaint() for painting messages
 }
 
-void CFRegDialog::OnOK() 
+void CFRegDialog::OnOK()
 {
 	// TODO: Add extra validation here
 	int i;
 	char txt[20];
 	UpdateData(TRUE);
-	strcpy_s(txt,20,m_freg);
+	strcpy_s(txt, 20, m_freg);
 
-	i=0;
-	while (txt[i]!=0 && txt[i]!=' ')
+	i = 0;
+	while (txt[i] != 0 && txt[i] != ' ')
 	{
-		if (!isdigit(txt[i]) && txt[i]!='.') 
+		if (!isdigit(txt[i]) && txt[i] != '.')
 		{
-			if (i!=0 || txt[i]!='-') return;
+			if (i != 0 || txt[i] != '-') return;
 		}
 		i++;
 	}

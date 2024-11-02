@@ -24,7 +24,7 @@ CIOChildFrm::~CIOChildFrm()
 {
 }
 
-static char *IOtitle="Terminal";
+static char* IOtitle = "Terminal";
 
 BEGIN_MESSAGE_MAP(CIOChildFrm, CMDIChildWnd)
 	//{{AFX_MSG_MAP(CIOChildFrm)
@@ -35,18 +35,18 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CIOChildFrm message handlers
 
-void CIOChildFrm::ActivateFrame(int nCmdShow) 
+void CIOChildFrm::ActivateFrame(int nCmdShow)
 {
-	CMenu *pSysMenu=GetSystemMenu(FALSE);
-	pSysMenu->EnableMenuItem(6,MF_BYPOSITION|MF_GRAYED);
-	SetIcon(LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDI_ICON7)),TRUE);	
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	pSysMenu->EnableMenuItem(6, MF_BYPOSITION | MF_GRAYED);
+	SetIcon(LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ICON7)), TRUE);
 	CMDIChildWnd::ActivateFrame(nCmdShow);
 }
 
-BOOL CIOChildFrm::PreCreateWindow(CREATESTRUCT& cs) 
+BOOL CIOChildFrm::PreCreateWindow(CREATESTRUCT& cs)
 {
-	cs.style=WS_OVERLAPPEDWINDOW|WS_MINIMIZE|WS_CHILD;
-	cs.lpszName=IOtitle;
-	
+	cs.style = WS_OVERLAPPEDWINDOW | WS_MINIMIZE | WS_CHILD;
+	cs.lpszName = IOtitle;
+
 	return CMDIChildWnd::PreCreateWindow(cs);
 }

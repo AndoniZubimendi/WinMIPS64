@@ -30,21 +30,21 @@ END_MESSAGE_MAP()
 CChildFrame::CChildFrame()
 {
 	// TODO: add member initialization code here
-	
+
 }
 
 CChildFrame::~CChildFrame()
 {
 }
 
-static char *codetit="Código";
+static char* codetit = "Código";
 
 BOOL CChildFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Modify the Window class or styles here by modifying
 	//  the CREATESTRUCT cs
-	cs.style=WS_OVERLAPPEDWINDOW|WS_CHILD|WS_MAXIMIZE;
-	cs.lpszName=codetit;
+	cs.style = WS_OVERLAPPEDWINDOW | WS_CHILD | WS_MAXIMIZE;
+	cs.lpszName = codetit;
 
 	return CMDIChildWnd::PreCreateWindow(cs);
 }
@@ -68,11 +68,11 @@ void CChildFrame::Dump(CDumpContext& dc) const
 /////////////////////////////////////////////////////////////////////////////
 // CChildFrame message handlers
 
-void CChildFrame::ActivateFrame(int nCmdShow) 
+void CChildFrame::ActivateFrame(int nCmdShow)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	CMenu *pSysMenu=GetSystemMenu(FALSE);
-	pSysMenu->EnableMenuItem(6,MF_BYPOSITION|MF_GRAYED);
-	SetIcon(LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDI_ICON6)),TRUE);	
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	pSysMenu->EnableMenuItem(6, MF_BYPOSITION | MF_GRAYED);
+	SetIcon(LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ICON6)), TRUE);
 	CMDIChildWnd::ActivateFrame(nCmdShow);
 }

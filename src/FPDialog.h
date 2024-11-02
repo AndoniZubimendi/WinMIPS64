@@ -5,12 +5,12 @@
 
 class CFPDialog : public CDialog
 {
-// Construction
+	// Construction
 public:
 	CFPDialog(CWnd* pParent = NULL);   // standard constructor
 
-// Dialog Data
-	//{{AFX_DATA(CFPDialog)
+	// Dialog Data
+		//{{AFX_DATA(CFPDialog)
 	enum { IDD = IDD_FP };
 	CString	m_contents;
 	CString	m_addr;
@@ -20,7 +20,7 @@ public:
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CFPDialog)
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 

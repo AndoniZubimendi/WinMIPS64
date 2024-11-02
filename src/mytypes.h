@@ -227,10 +227,10 @@ union {
 
 typedef struct
 {
-    char *name;
-    BYTE type;
-    BYTE subtype;
-    WORD32 op_code;
+	char* name;
+	BYTE type;
+	BYTE subtype;
+	WORD32 op_code;
 } op_code_info;
 
 #define SI(x) ((WORD32)x<<26)
@@ -268,23 +268,23 @@ typedef struct
 
 typedef struct
 {
-    char *symb;
-    BYTE type;
-    WORD32 value;
+	char* symb;
+	BYTE type;
+	WORD32 value;
 } symbol_table;
 
 struct
 {
-    int type,function,opcode,tf,target;
-    int rs,rt,rd;
-	int src1,src2;
-    SIGNED32 Imm;
+	int type, function, opcode, tf, target;
+	int rs, rt, rd;
+	int src1, src2;
+	SIGNED32 Imm;
 } typedef instruction;
 
 struct
 {
-    WORD64 val;
-    SIGNED32 source;
+	WORD64 val;
+	SIGNED32 source;
 } typedef reg;
 
 struct
@@ -292,82 +292,82 @@ struct
 	int    status;
 	WORD32 codesize;
 	WORD32 datasize;
-    BYTE   *code;
-	BYTE   *cstat;
-    BYTE   *data;
-	BYTE   *dstat;
+	BYTE* code;
+	BYTE* cstat;
+	BYTE* data;
+	BYTE* dstat;
 	BYTE   mm[16];
-	WORD32 *screen;
+	WORD32* screen;
 	WORD32 nlines;
 	WORD32 ncols;
 	BOOL drawit;
 	CString Terminal;
 	WORD32 keyboard;
-    WORD32 PC;
-    reg    rreg[64];
-    reg    wreg[64];
+	WORD32 PC;
+	reg    rreg[64];
+	reg    wreg[64];
 	BOOL fp_cc;
 } typedef processor;
 
-struct 
+struct
 {
-    WORD32 IR;  /* pointer to instruction in memory */
-    instruction ins;
-    WORD32 NPC;
-    BOOL active;
+	WORD32 IR;  /* pointer to instruction in memory */
+	instruction ins;
+	WORD32 NPC;
+	BOOL active;
 	BOOL predicted;
 } typedef if_id_reg;
 
-struct 
+struct
 {
-    WORD32 IR;
-    instruction ins;
-    int rA,rB;
-    WORD32 NPC;
+	WORD32 IR;
+	instruction ins;
+	int rA, rB;
+	WORD32 NPC;
 	WORD64 ALUOutput;
-    SIGNED32 Imm;
-    BOOL active;
-    int cycles;
+	SIGNED32 Imm;
+	BOOL active;
+	int cycles;
 } typedef id_ex_reg;
 
-struct 
+struct
 {
-    WORD32 IR;
-    instruction ins;
-    int rB;
-    WORD64 ALUOutput;
-    WORD32 NPC;
-    BOOL active;
+	WORD32 IR;
+	instruction ins;
+	int rB;
+	WORD64 ALUOutput;
+	WORD32 NPC;
+	BOOL active;
 	BOOL condition;
 } typedef ex_mem_reg;
 
 struct
 {
-    WORD32 IR;
-    instruction ins;
-    WORD64 ALUOutput,LMD;
-    WORD32 NPC;
-    BOOL active;
+	WORD32 IR;
+	instruction ins;
+	WORD64 ALUOutput, LMD;
+	WORD32 NPC;
+	BOOL active;
 	BOOL condition;
 } typedef mem_wb_reg;
 
-struct 
+struct
 {
-    BOOL active;
+	BOOL active;
 	BOOL halting;
-    BOOL   branch;
-    WORD32 destination;
+	BOOL   branch;
+	WORD32 destination;
 	int ADD_LATENCY;
 	int MUL_LATENCY;
 	int DIV_LATENCY;
 
-    if_id_reg  if_id;
-    id_ex_reg integer;
-    id_ex_reg m[10];
-    id_ex_reg a[10];
-    id_ex_reg div;
-    ex_mem_reg ex_mem;
-    mem_wb_reg  mem_wb;
+	if_id_reg  if_id;
+	id_ex_reg integer;
+	id_ex_reg m[10];
+	id_ex_reg a[10];
+	id_ex_reg div;
+	ex_mem_reg ex_mem;
+	mem_wb_reg  mem_wb;
 } typedef pipeline;
 
 struct

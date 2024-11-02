@@ -26,21 +26,21 @@ protected: // create from serialization only
 	CWinMIPS64Doc();
 	DECLARE_DYNCREATE(CWinMIPS64Doc)
 
-// Attributes
+	// Attributes
 public:
-	char AppDir[MAX_PATH+1];
-	char LasDir[MAX_PATH+1];
-	CString *codelines;
-	CString *datalines;
-	CString *assembly;
-	CString *mnemonic;
+	char AppDir[MAX_PATH + 1];
+	char LasDir[MAX_PATH + 1];
+	CString* codelines;
+	CString* datalines;
+	CString* assembly;
+	CString* mnemonic;
 	CString lastfile;
 
 	unsigned int CODESIZE;
 	unsigned int DATASIZE;
 
 	processor cpu;
-    pipeline pipe;
+	pipeline pipe;
 
 	BOOL forwarding;
 	BOOL delay_slot;
@@ -70,7 +70,7 @@ public:
 	unsigned int ADD_LATENCY;
 	unsigned int MUL_LATENCY;
 	unsigned int DIV_LATENCY;
-	
+
 	BOOL simulation_running;
 	BOOL restart;
 	int stall_type;
@@ -81,13 +81,13 @@ public:
 	WORD32 entries;
 	WORD32 offset;
 
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CWinMIPS64Doc)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CWinMIPS64Doc)
+public:
 	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);
 	//}}AFX_VIRTUAL
@@ -99,25 +99,25 @@ public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
-	int mygets(char *,int,CFile *);
+	int mygets(char*, int, CFile*);
 	BOOL openit(CString);
 	int openfile(CString);
 
 protected:
-	BOOL getcodesym(char *&,WORD32 *);
-	BOOL getdatasym(char *&,WORD32 *);
-	int instruction(char *);
-	BOOL directive(int, char *, char *);
-	int first_pass(char *,int);
-	int second_pass(char *,int);
-	void process_result(RESULT *,BOOL);
+	BOOL getcodesym(char*&, WORD32*);
+	BOOL getdatasym(char*&, WORD32*);
+	int instruction(char*);
+	BOOL directive(int, char*, char*);
+	int first_pass(char*, int);
+	int second_pass(char*, int);
+	void process_result(RESULT*, BOOL);
 	void clear();
-	int one_cycle(pipeline *,processor *,BOOL);
-	void check_stalls(int,char *,int,char *);
-	void update_history(pipeline *,processor *,RESULT *);
-	int update_io(processor *);
+	int one_cycle(pipeline*, processor*, BOOL);
+	void check_stalls(int, char*, int, char*);
+	void update_history(pipeline*, processor*, RESULT*);
+	int update_io(processor*);
 
-// Generated message map functions
+	// Generated message map functions
 protected:
 	//{{AFX_MSG(CWinMIPS64Doc)
 	afx_msg void OnFileReset();
@@ -136,12 +136,12 @@ protected:
 	afx_msg void OnUpdateFileMemory(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateFileOpen(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateFileReset(CCmdUI* pCmdUI);
-//	afx_msg void OnUpdateExecuteInterrupt(CCmdUI* pCmdUI);
+	//	afx_msg void OnUpdateExecuteInterrupt(CCmdUI* pCmdUI);
 	afx_msg void OnFullReset();
 	afx_msg void OnUpdateFullReset(CCmdUI* pCmdUI);
 	afx_msg void OnReload();
 	afx_msg void OnUpdateReload(CCmdUI* pCmdUI);
-//	afx_msg void OnConfigureWordlength();
+	//	afx_msg void OnConfigureWordlength();
 	afx_msg void OnFileDelaySlot();
 	afx_msg void OnUpdateFileDelaySlot(CCmdUI* pCmdUI);
 	afx_msg void OnFileForwarding();

@@ -9,18 +9,18 @@ class CStatChildFrm : public CMDIChildWnd
 protected:
 	CStatChildFrm();           // protected constructor used by dynamic creation
 
-// Attributes
+	// Attributes
 public:
 
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CStatChildFrm)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CStatChildFrm)
+public:
 	virtual void ActivateFrame(int nCmdShow = -1);
-	protected:
+protected:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	//}}AFX_VIRTUAL
 

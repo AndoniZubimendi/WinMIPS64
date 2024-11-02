@@ -24,7 +24,7 @@ CStatChildFrm::~CStatChildFrm()
 {
 }
 
-static char *stattit="Estadisticas";
+static char* stattit = "Estadisticas";
 
 BEGIN_MESSAGE_MAP(CStatChildFrm, CMDIChildWnd)
 	//{{AFX_MSG_MAP(CStatChildFrm)
@@ -35,18 +35,18 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CStatChildFrm message handlers
 
-BOOL CStatChildFrm::PreCreateWindow(CREATESTRUCT& cs) 
+BOOL CStatChildFrm::PreCreateWindow(CREATESTRUCT& cs)
 {
-	cs.style=WS_OVERLAPPEDWINDOW|WS_MAXIMIZE|WS_CHILD;
-	cs.lpszName=stattit;
-	
+	cs.style = WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_CHILD;
+	cs.lpszName = stattit;
+
 	return CMDIChildWnd::PreCreateWindow(cs);
 }
 
-void CStatChildFrm::ActivateFrame(int nCmdShow) 
+void CStatChildFrm::ActivateFrame(int nCmdShow)
 {
-	CMenu *pSysMenu=GetSystemMenu(FALSE);
-	pSysMenu->EnableMenuItem(6,MF_BYPOSITION|MF_GRAYED);
-	SetIcon(LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDI_ICON5)),TRUE);		
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	pSysMenu->EnableMenuItem(6, MF_BYPOSITION | MF_GRAYED);
+	SetIcon(LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ICON5)), TRUE);
 	CMDIChildWnd::ActivateFrame(nCmdShow);
 }

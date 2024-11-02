@@ -24,7 +24,7 @@ CDataChildFrm::~CDataChildFrm()
 {
 }
 
-static char *datatit="Memoria de Datos";
+static char* datatit = "Memoria de Datos";
 
 BEGIN_MESSAGE_MAP(CDataChildFrm, CMDIChildWnd)
 	//{{AFX_MSG_MAP(CDataChildFrm)
@@ -35,31 +35,31 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CDataChildFrm message handlers
 
-BOOL CDataChildFrm::PreCreateWindow(CREATESTRUCT& cs) 
+BOOL CDataChildFrm::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	cs.style=WS_OVERLAPPEDWINDOW|WS_MAXIMIZE|WS_CHILD;
-	cs.lpszName=datatit;
+	cs.style = WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_CHILD;
+	cs.lpszName = datatit;
 
 
 	return CMDIChildWnd::PreCreateWindow(cs);
 }
 
-void CDataChildFrm::ActivateFrame(int nCmdShow) 
+void CDataChildFrm::ActivateFrame(int nCmdShow)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	CMenu *pSysMenu=GetSystemMenu(FALSE);
-	pSysMenu->EnableMenuItem(6,MF_BYPOSITION|MF_GRAYED);
-	SetIcon(LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDI_ICON1)),TRUE);
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	pSysMenu->EnableMenuItem(6, MF_BYPOSITION | MF_GRAYED);
+	SetIcon(LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ICON1)), TRUE);
 	CMDIChildWnd::ActivateFrame(nCmdShow);
 }
 
-BOOL CDataChildFrm::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CMDIFrameWnd* pParentWnd, CCreateContext* pContext) 
+BOOL CDataChildFrm::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CMDIFrameWnd* pParentWnd, CCreateContext* pContext)
 {
-	return CMDIChildWnd::Create(lpszClassName,lpszWindowName, dwStyle, rect, pParentWnd, pContext);
+	return CMDIChildWnd::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, pContext);
 }
 
-BOOL CDataChildFrm::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext) 
+BOOL CDataChildFrm::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 {
 
 	return CMDIChildWnd::OnCreateClient(lpcs, pContext);

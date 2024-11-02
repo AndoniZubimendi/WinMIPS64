@@ -32,12 +32,12 @@ static char THIS_FILE[] = __FILE__;
 BEGIN_MESSAGE_MAP(CWinMIPS64App, CWinApp)
 	//{{AFX_MSG_MAP(CWinMIPS64App)
 	ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
-	//}}AFX_MSG_MAP
-	// Standard file based document commands
-	ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)
-	ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
+	// NOTE - the ClassWizard will add and remove mapping macros here.
+	//    DO NOT EDIT what you see in these blocks of generated code!
+//}}AFX_MSG_MAP
+// Standard file based document commands
+ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)
+ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -83,37 +83,37 @@ BOOL CWinMIPS64App::InitInstance()
 		RUNTIME_CLASS(CChildFrame), // custom MDI child frame
 		RUNTIME_CLASS(CWinMIPS64View));
 	AddDocTemplate(pDocTemplate);
-	
-	regtemp=new CMultiDocTemplate(
+
+	regtemp = new CMultiDocTemplate(
 		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CRegChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CRegView));
-	datatemp=new CMultiDocTemplate(
+	datatemp = new CMultiDocTemplate(
 		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CDataChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CDataView));
 
-	stattemp=new CMultiDocTemplate(
+	stattemp = new CMultiDocTemplate(
 		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CStatChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CStatView));
 
-	pipetemp=new CMultiDocTemplate(
+	pipetemp = new CMultiDocTemplate(
 		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CPipeChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CPipeView));
 
-	cyclestemp=new CMultiDocTemplate(
+	cyclestemp = new CMultiDocTemplate(
 		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CCyclesChildFrm), // custom MDI child frame
 		RUNTIME_CLASS(CView));
 
-	iotemp=new CMultiDocTemplate(
+	iotemp = new CMultiDocTemplate(
 		IDR_WINMIPS64TYPE,
 		RUNTIME_CLASS(CWinMIPS64Doc),
 		RUNTIME_CLASS(CIOChildFrm), // custom MDI child frame
@@ -122,14 +122,14 @@ BOOL CWinMIPS64App::InitInstance()
 
 	// create main MDI Frame window
 	CMainFrame* pMainFrame = new CMainFrame;
-	if (!pMainFrame->LoadFrame(IDR_MAINFRAME,WS_OVERLAPPEDWINDOW|WS_MAXIMIZE))
+	if (!pMainFrame->LoadFrame(IDR_MAINFRAME, WS_OVERLAPPEDWINDOW | WS_MAXIMIZE))
 		return FALSE;
 	m_pMainWnd = pMainFrame;
 
 	// Parse command line for standard shell commands, DDE, file open
 	CCommandLineInfo cmdInfo;
 	ParseCommandLine(cmdInfo);
-	
+
 	// Dispatch commands specified on the command line
 	if (!ProcessShellCommand(cmdInfo))
 		return FALSE;
@@ -180,14 +180,14 @@ class CAboutDlg : public CDialog
 public:
 	CAboutDlg();
 
-// Dialog Data
-	//{{AFX_DATA(CAboutDlg)
+	// Dialog Data
+		//{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CAboutDlg)
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 

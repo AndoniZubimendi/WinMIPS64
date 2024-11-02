@@ -9,18 +9,18 @@ class CRegChildFrm : public CMDIChildWnd
 protected:
 	CRegChildFrm();           // protected constructor used by dynamic creation
 
-// Attributes
+	// Attributes
 public:
 
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CRegChildFrm)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CRegChildFrm)
+public:
 	virtual void ActivateFrame(int nCmdShow = -1);
-	protected:
+protected:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	//}}AFX_VIRTUAL
 

@@ -11,20 +11,20 @@ protected:
 	CPipeView();           // protected constructor used by dynamic creation
 	DECLARE_DYNCREATE(CPipeView)
 
-// Attributes
+	// Attributes
 public:
 	CWinMIPS64Doc* GetDocument();
 	CFont font;
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CPipeView)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CPipeView)
+public:
 	virtual void OnPrepareDC(CDC* pDC, CPrintInfo* pInfo = NULL);
 	virtual void OnInitialUpdate();
-	protected:
+protected:
 	virtual void OnDraw(CDC* pDC);      // overridden to draw this view
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint);
 	//}}AFX_VIRTUAL
@@ -47,5 +47,7 @@ protected:
 
 #ifndef _DEBUG  // debug version in PipeView.cpp
 inline CWinMIPS64Doc* CPipeView::GetDocument()
-   { return (CWinMIPS64Doc*)m_pDocument; }
+{
+	return (CWinMIPS64Doc*)m_pDocument;
+}
 #endif

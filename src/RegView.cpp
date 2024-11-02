@@ -43,9 +43,9 @@ void CRegView::OnInitialUpdate()
 {
 	CScrollView::OnInitialUpdate();
 
-	font.CreateFont(15,0,0,0,400,FALSE,FALSE,0,
-					ANSI_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,
-					DEFAULT_QUALITY,DEFAULT_PITCH|FF_MODERN,"Courier New");
+	font.CreateFont(15, 0, 0, 0, 400, FALSE, FALSE, 0,
+		ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
+		DEFAULT_QUALITY, DEFAULT_PITCH | FF_MODERN, "Courier New");
 }
 
 void CRegView::OnDraw(CDC* pDC)
@@ -60,59 +60,59 @@ void CRegView::OnDraw(CDC* pDC)
 	pDC->SelectObject(&font);
 
 	// R[] registers
-	for (i=0;i<32;i++)
+	for (i = 0; i < 32; i++)
 	{
 		pDC->SetTextColor(BLACK);
-		source=pDoc->cpu.rreg[i].source;
-		if (source==FROM_ID) 
+		source = pDoc->cpu.rreg[i].source;
+		if (source == FROM_ID)
 			pDC->SetTextColor(CYAN);
-		if (source==FROM_EX) 
+		if (source == FROM_EX)
 			pDC->SetTextColor(RED);
-		if (source==FROM_MEM) 
+		if (source == FROM_MEM)
 			pDC->SetTextColor(GREEN);
-		if (source<=NOT_AVAILABLE) 
+		if (source <= NOT_AVAILABLE)
 			pDC->SetTextColor(GREY);
 
 		registerName(i, txt, pDoc->registers_as_numbers);
-		sprintword(&txt[5],pDoc->cpu.rreg[i].val);
+		sprintword(&txt[5], pDoc->cpu.rreg[i].val);
 
-		pDC->TextOut(0,i*14,txt);
+		pDC->TextOut(0, i * 14, txt);
 
 	}
 	// F[] registers
-	for (i=0;i<32;i++)
+	for (i = 0; i < 32; i++)
 	{
 		pDC->SetTextColor(BLACK);
-		source=pDoc->cpu.rreg[i+32].source;
-		if (source==FROM_ID) 
+		source = pDoc->cpu.rreg[i + 32].source;
+		if (source == FROM_ID)
 			pDC->SetTextColor(CYAN);
-		if (source==FROM_EX) 
+		if (source == FROM_EX)
 			pDC->SetTextColor(RED);
-		if (source==FROM_MEM) 
+		if (source == FROM_MEM)
 			pDC->SetTextColor(GREEN);
-		if (source==FROM_ADD)
+		if (source == FROM_ADD)
 			pDC->SetTextColor(DGREEN);
-		if (source==FROM_MUL)
+		if (source == FROM_MUL)
 			pDC->SetTextColor(DCYAN);
-		if (source==FROM_DIV)
+		if (source == FROM_DIV)
 			pDC->SetTextColor(DYELLOW);
-		if (source<=NOT_AVAILABLE) 
+		if (source <= NOT_AVAILABLE)
 			pDC->SetTextColor(GREY);
 
-		db.s=pDoc->cpu.rreg[i+32].val;
-		sprintf_s(txt,200,"F%d=  ",i);
-		sprintdouble(&txt[5],db.d);
-	
-		pDC->TextOut(160,i*14,txt);
+		db.s = pDoc->cpu.rreg[i + 32].val;
+		sprintf_s(txt, 200, "F%d=  ", i);
+		sprintdouble(&txt[5], db.d);
+
+		pDC->TextOut(160, i * 14, txt);
 	}
 
 	CPoint pt;
-	pt=GetScrollPosition();
-	first=pt.y/14;
+	pt = GetScrollPosition();
+	first = pt.y / 14;
 
-	if (pt.y%14 != 0)
+	if (pt.y % 14 != 0)
 	{
-		pt.y=14*first;
+		pt.y = 14 * first;
 		ScrollToPosition(pt);
 	}
 }
@@ -141,90 +141,90 @@ CWinMIPS64Doc* CRegView::GetDocument() // non-debug version is inline
 /////////////////////////////////////////////////////////////////////////////
 // CRegView message handlers
 
-void CRegView::OnLButtonDblClk(UINT /* nFlags */, CPoint point) 
+void CRegView::OnLButtonDblClk(UINT /* nFlags */, CPoint point)
 {
 	DOUBLE64 db;
 	CRegDialog dlg;
 	CFRegDialog fdlg;
 
-	BOOL fr=FALSE;
-	int reg=first+point.y/14;
+	BOOL fr = FALSE;
+	int reg = first + point.y / 14;
 	char txt[1000];
 	char txt1[1000];
 	CWinMIPS64Doc* pDoc = GetDocument();
-	
-	if (reg>31) return;
 
-	if (point.x>160) fr=TRUE;
+	if (reg > 31) return;
 
-	if (point.x>310) return;
-	
-	if (fr) 
+	if (point.x > 160) fr = TRUE;
+
+	if (point.x > 310) return;
+
+	if (fr)
 	{
-		if (pDoc->cpu.rreg[reg+32].source!=FROM_REGISTER) return;
-		db.s=pDoc->cpu.rreg[reg+32].val;
-		sprintdouble(txt1,db.d);
-		fdlg.m_freg=txt1;
-		sprintf_s(txt,1000,"F%d=",reg);
-		fdlg.m_fname=txt;
+		if (pDoc->cpu.rreg[reg + 32].source != FROM_REGISTER) return;
+		db.s = pDoc->cpu.rreg[reg + 32].val;
+		sprintdouble(txt1, db.d);
+		fdlg.m_freg = txt1;
+		sprintf_s(txt, 1000, "F%d=", reg);
+		fdlg.m_fname = txt;
 		fdlg.DoModal();
-		if (strcmp(txt1,LPCTSTR(fdlg.m_freg))!=0)
+		if (strcmp(txt1, LPCTSTR(fdlg.m_freg)) != 0)
 		{
-			strcpy_s(txt,1000,LPCTSTR(fdlg.m_freg));
-			db.d=atof(txt);
-			pDoc->cpu.rreg[reg+32].val=db.u;
-			pDoc->cpu.wreg[reg+32].val=db.u;
+			strcpy_s(txt, 1000, LPCTSTR(fdlg.m_freg));
+			db.d = atof(txt);
+			pDoc->cpu.rreg[reg + 32].val = db.u;
+			pDoc->cpu.wreg[reg + 32].val = db.u;
 		}
 
 	}
-	else	
+	else
 	{
-		if (reg==0) return;
-		if (pDoc->cpu.rreg[reg].source!=FROM_REGISTER) return;
-//		sprintf(txt,"%16I64x",pDoc->cpu.rreg[reg].val);
-		sprintword(txt,pDoc->cpu.rreg[reg].val);
-		dlg.m_reg=txt;
+		if (reg == 0) return;
+		if (pDoc->cpu.rreg[reg].source != FROM_REGISTER) return;
+		//		sprintf(txt,"%16I64x",pDoc->cpu.rreg[reg].val);
+		sprintword(txt, pDoc->cpu.rreg[reg].val);
+		dlg.m_reg = txt;
 		registerName(reg, txt, pDoc->registers_as_numbers);
-		dlg.m_name=txt;
+		dlg.m_name = txt;
 		dlg.DoModal();
-		strcpy_s(txt,1000,LPCTSTR(dlg.m_reg));
-		pDoc->cpu.rreg[reg].val=strtoint64(txt,NULL,16);
-		pDoc->cpu.wreg[reg].val=strtoint64(txt,NULL,16);
+		strcpy_s(txt, 1000, LPCTSTR(dlg.m_reg));
+		pDoc->cpu.rreg[reg].val = strtoint64(txt, NULL, 16);
+		pDoc->cpu.wreg[reg].val = strtoint64(txt, NULL, 16);
 	}
 
-	OnUpdate(NULL,0,NULL);
+	OnUpdate(NULL, 0, NULL);
 }
 
-void CRegView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
+void CRegView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	switch (nChar)
 	{
 	case VK_HOME:
-		OnVScroll(SB_TOP,0,NULL);
+		OnVScroll(SB_TOP, 0, NULL);
 		break;
 	case VK_END:
-		OnVScroll(SB_BOTTOM,0,NULL);
+		OnVScroll(SB_BOTTOM, 0, NULL);
 		break;
 	case VK_UP:
-		OnVScroll(SB_LINEUP,0,NULL);
+		OnVScroll(SB_LINEUP, 0, NULL);
 		break;
 	case VK_DOWN:
-		OnVScroll(SB_LINEDOWN,0,NULL);
+		OnVScroll(SB_LINEDOWN, 0, NULL);
 		break;
 	default:
 		break;
-		
-	}	
+
+	}
 	CScrollView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-void CRegView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */) 
+void CRegView::OnUpdate(CView* /* pSender */, LPARAM lHint, CObject* /* pHint */)
 {
 
 	CSize sizeTotal;
-	if (lHint==2) return;
+	if (lHint == 2) return;
 	sizeTotal.cx = 310;
-	sizeTotal.cy = 32*14+7;
-	SetScrollSizes(MM_TEXT, sizeTotal,CSize(100,56),CSize(100,14));
+	sizeTotal.cy = 32 * 14 + 7;
+	SetScrollSizes(MM_TEXT, sizeTotal, CSize(100, 56), CSize(100, 14));
 	InvalidateRect(NULL);
 }

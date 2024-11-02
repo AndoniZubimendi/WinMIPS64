@@ -12,18 +12,18 @@ class CCyclesChildFrm : public CMDIChildWnd
 protected:
 	CCyclesChildFrm();           // protected constructor used by dynamic creation
 
-// Attributes
+	// Attributes
 public:
 
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CCyclesChildFrm)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CCyclesChildFrm)
+public:
 	virtual void ActivateFrame(int nCmdShow = -1);
-	protected:
+protected:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 	//}}AFX_VIRTUAL

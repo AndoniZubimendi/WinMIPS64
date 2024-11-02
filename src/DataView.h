@@ -11,20 +11,20 @@ protected:
 	CDataView();           // protected constructor used by dynamic creation
 	DECLARE_DYNCREATE(CDataView)
 
-// Attributes
+	// Attributes
 public:
 	CWinMIPS64Doc* GetDocument();
 	int first;
 	CFont font;
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CDataView)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CDataView)
+public:
 	virtual void OnInitialUpdate();
-	protected:
+protected:
 	virtual void OnDraw(CDC* pDC);      // overridden to draw this view
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint);
 	//}}AFX_VIRTUAL
@@ -50,5 +50,7 @@ protected:
 
 #ifndef _DEBUG  // debug version in DataView.cpp
 inline CWinMIPS64Doc* CDataView::GetDocument()
-   { return (CWinMIPS64Doc*)m_pDocument; }
+{
+	return (CWinMIPS64Doc*)m_pDocument;
+}
 #endif

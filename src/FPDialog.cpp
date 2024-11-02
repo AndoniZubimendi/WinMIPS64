@@ -45,30 +45,30 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CFPDialog message handlers
 
-void CFPDialog::OnOK() 
+void CFPDialog::OnOK()
 {
 	int i;
 	char txt[2000];
 	UpdateData(TRUE);
-	strcpy_s(txt,2000,m_contents);
-	
-	i=0;
-	while (txt[i]!=0 && txt[i]!=' ')
+	strcpy_s(txt, 2000, m_contents);
+
+	i = 0;
+	while (txt[i] != 0 && txt[i] != ' ')
 	{
-		if (!isdigit(txt[i]) && txt[i]!='.')
+		if (!isdigit(txt[i]) && txt[i] != '.')
 		{
-			if (i!=0 || txt[i]!='-') return;
+			if (i != 0 || txt[i] != '-') return;
 		}
 		i++;
 	}
 	CDialog::OnOK();
 }
 
-void CFPDialog::OnPaint() 
+void CFPDialog::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
-	
+
 	// TODO: Add your message handler code here
-	
+
 	// Do not call CDialog::OnPaint() for painting messages
 }

@@ -5,12 +5,12 @@
 
 class CMultiDialog : public CDialog
 {
-// Construction
+	// Construction
 public:
 	CMultiDialog(CWnd* pParent = NULL);   // standard constructor
 
-// Dialog Data
-	//{{AFX_DATA(CMultiDialog)
+	// Dialog Data
+		//{{AFX_DATA(CMultiDialog)
 	enum { IDD = IDD_MULTI_CYCLE };
 	UINT	m_cycles;
 	//}}AFX_DATA
@@ -19,7 +19,7 @@ public:
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CMultiDialog)
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 

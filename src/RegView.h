@@ -10,18 +10,18 @@ protected:
 	CRegView();           // protected constructor used by dynamic creation
 	DECLARE_DYNCREATE(CRegView)
 
-// Attributes
+	// Attributes
 public:
 	CWinMIPS64Doc* GetDocument();
 	int first;
 	CFont font;
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CRegView)
-	protected:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CRegView)
+protected:
 	virtual void OnDraw(CDC* pDC);      // overridden to draw this view
 	virtual void OnInitialUpdate();     // first time after construct
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint);
@@ -46,5 +46,7 @@ protected:
 
 #ifndef _DEBUG  // debug version in RegView.cpp
 inline CWinMIPS64Doc* CRegView::GetDocument()
-   { return (CWinMIPS64Doc*)m_pDocument; }
+{
+	return (CWinMIPS64Doc*)m_pDocument;
+}
 #endif

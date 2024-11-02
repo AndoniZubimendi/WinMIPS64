@@ -48,16 +48,16 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CRegDialog message handlers
 
-void CRegDialog::OnOK() 
+void CRegDialog::OnOK()
 {
 	int i;
 	char txt[20];
 	UpdateData(TRUE);
-	strcpy_s(txt,20,m_reg);
+	strcpy_s(txt, 20, m_reg);
 
-	i=0;
-	while (txt[i]!=0 && txt[i]!=' ')
-	{ 
+	i = 0;
+	while (txt[i] != 0 && txt[i] != ' ')
+	{
 		if (!isxdigit(txt[i])) return;
 		i++;
 	}
@@ -65,21 +65,21 @@ void CRegDialog::OnOK()
 	CDialog::OnOK();
 }
 
-void CRegDialog::OnPaint() 
+void CRegDialog::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 	CFont m_Font;
 
-	m_Font.CreateFont(15,0,0,0,400,FALSE,FALSE,
-		0,ANSI_CHARSET,OUT_DEFAULT_PRECIS,
-		CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,
-		DEFAULT_PITCH|FF_MODERN,"Courier New");
+	m_Font.CreateFont(15, 0, 0, 0, 400, FALSE, FALSE,
+		0, ANSI_CHARSET, OUT_DEFAULT_PRECIS,
+		CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
+		DEFAULT_PITCH | FF_MODERN, "Courier New");
 
-//	m_Font.CreatePointFont(100,"Courier");
-	CFontCtrl<CEdit> * pEdit;
+	//	m_Font.CreatePointFont(100,"Courier");
+	CFontCtrl<CEdit>* pEdit;
 	pEdit = (CFontCtrl<CEdit> *)GetDlgItem(IDC_REG);
-	pEdit->SetFont(&m_Font,FALSE);
+	pEdit->SetFont(&m_Font, FALSE);
 	m_Font.DeleteObject();
-//	GetDlgItem(IDC_REG)->SetFocus();	
-	// Do not call CDialog::OnPaint() for painting messages
+	//	GetDlgItem(IDC_REG)->SetFocus();	
+		// Do not call CDialog::OnPaint() for painting messages
 }

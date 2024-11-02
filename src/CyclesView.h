@@ -11,7 +11,7 @@ protected:
 	CCyclesView();           // protected constructor used by dynamic creation
 	DECLARE_DYNCREATE(CCyclesView)
 
-// Attributes
+	// Attributes
 public:
 	CWinMIPS64Doc* GetDocument();
 	WORD32 srow;
@@ -19,16 +19,16 @@ public:
 	WORD32 scol;
 	WORD32 ncol;
 	CFont font;
-	CBrush yellow,cyan,red,green,magenta,dcyan,dgreen,dyellow;
-// Operations
+	CBrush yellow, cyan, red, green, magenta, dcyan, dgreen, dyellow;
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CCyclesView)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CCyclesView)
+public:
 	virtual void OnPrepareDC(CDC* pDC, CPrintInfo* pInfo = NULL);
-	protected:
+protected:
 	virtual void OnDraw(CDC* pDC);      // overridden to draw this view
 	virtual void OnInitialUpdate();     // first time after construct
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint);
@@ -51,5 +51,7 @@ protected:
 
 #ifndef _DEBUG  // debug version in CyclesView.cpp
 inline CWinMIPS64Doc* CCyclesView::GetDocument()
-   { return (CWinMIPS64Doc*)m_pDocument; }
+{
+	return (CWinMIPS64Doc*)m_pDocument;
+}
 #endif

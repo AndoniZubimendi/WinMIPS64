@@ -24,7 +24,7 @@ CPipeChildFrm::~CPipeChildFrm()
 {
 }
 
-static char *pipetit="Pipeline";
+static char* pipetit = "Pipeline";
 
 BEGIN_MESSAGE_MAP(CPipeChildFrm, CMDIChildWnd)
 	//{{AFX_MSG_MAP(CPipeChildFrm)
@@ -35,20 +35,20 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CPipeChildFrm message handlers
 
-void CPipeChildFrm::ActivateFrame(int nCmdShow) 
+void CPipeChildFrm::ActivateFrame(int nCmdShow)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	CMenu *pSysMenu=GetSystemMenu(FALSE);
-	pSysMenu->EnableMenuItem(6,MF_BYPOSITION|MF_GRAYED);
-	SetIcon(LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDI_ICON3)),TRUE);	
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	pSysMenu->EnableMenuItem(6, MF_BYPOSITION | MF_GRAYED);
+	SetIcon(LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ICON3)), TRUE);
 	CMDIChildWnd::ActivateFrame(nCmdShow);
 }
 
-BOOL CPipeChildFrm::PreCreateWindow(CREATESTRUCT& cs) 
+BOOL CPipeChildFrm::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	cs.style=WS_OVERLAPPEDWINDOW|WS_MAXIMIZE|WS_CHILD;
-	cs.lpszName=pipetit;
+	cs.style = WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_CHILD;
+	cs.lpszName = pipetit;
 
 	return CMDIChildWnd::PreCreateWindow(cs);
 }

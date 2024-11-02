@@ -43,11 +43,11 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CMultiDialog message handlers
 
-void CMultiDialog::OnPaint() 
+void CMultiDialog::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
-	
+
 	GetDlgItem(IDC_CYCLES)->SetFocus();
-	
+
 	// Do not call CDialog::OnPaint() for painting messages
 }

@@ -19,14 +19,12 @@ static char THIS_FILE[] = __FILE__;
 IMPLEMENT_DYNCREATE(CCyclesChildFrm, CMDIChildWnd)
 
 CCyclesChildFrm::CCyclesChildFrm()
-{
-}
+= default;
 
 CCyclesChildFrm::~CCyclesChildFrm()
-{
-}
+= default;
 
-static char *cyclestit="Ciclos";
+static char* cyclestit = "Ciclos";
 
 BEGIN_MESSAGE_MAP(CCyclesChildFrm, CMDIChildWnd)
 	//{{AFX_MSG_MAP(CCyclesChildFrm)
@@ -37,29 +35,29 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CCyclesChildFrm message handlers
 
-void CCyclesChildFrm::ActivateFrame(int nCmdShow) 
+void CCyclesChildFrm::ActivateFrame(int nCmdShow)
 {
 	// TODO: Add your specialized code here and/or call the base class
-	CMenu *pSysMenu=GetSystemMenu(FALSE);
-	pSysMenu->EnableMenuItem(6,MF_BYPOSITION|MF_GRAYED);
-	SetIcon(LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDI_ICON4)),TRUE);		
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	pSysMenu->EnableMenuItem(6, MF_BYPOSITION | MF_GRAYED);
+	SetIcon(LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ICON4)), TRUE);
 	CMDIChildWnd::ActivateFrame(nCmdShow);
 }
 
-BOOL CCyclesChildFrm::PreCreateWindow(CREATESTRUCT& cs) 
+BOOL CCyclesChildFrm::PreCreateWindow(CREATESTRUCT& cs)
 {
-	cs.style=WS_OVERLAPPEDWINDOW|WS_MAXIMIZE|WS_CHILD;
-	cs.lpszName=cyclestit;
-	
+	cs.style = WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_CHILD;
+	cs.lpszName = cyclestit;
+
 	return CMDIChildWnd::PreCreateWindow(cs);
 }
 
-BOOL CCyclesChildFrm::OnCreateClient(LPCREATESTRUCT, CCreateContext* pContext) 
+BOOL CCyclesChildFrm::OnCreateClient(LPCREATESTRUCT, CCreateContext* pContext)
 {
-	BOOL outcome=split.CreateStatic(this,1,2,WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL);
-	split.CreateView(0,0,RUNTIME_CLASS(CInstructView),CSize(0,0),pContext);
-	split.CreateView(0,1,RUNTIME_CLASS(CCyclesView),CSize(0,0),pContext);
-	split.SetColumnInfo(0,100,100);
+	BOOL outcome = split.CreateStatic(this, 1, 2, WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL);
+	split.CreateView(0, 0, RUNTIME_CLASS(CInstructView), CSize(0, 0), pContext);
+	split.CreateView(0, 1, RUNTIME_CLASS(CCyclesView), CSize(0, 0), pContext);
+	split.SetColumnInfo(0, 100, 100);
 	return outcome;
-//	return CMDIChildWnd::OnCreateClient(lpcs, pContext);
+	//	return CMDIChildWnd::OnCreateClient(lpcs, pContext);
 }

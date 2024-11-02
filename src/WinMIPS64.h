@@ -3,7 +3,7 @@
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error include 'stdafx.h' before including this file for PCH
+#error include 'stdafx.h' before including this file for PCH
 #endif
 
 #include "../resource.h"       // main symbols
@@ -24,10 +24,10 @@ public:
 	CMultiDocTemplate* cyclestemp;
 	CMultiDocTemplate* iotemp;
 	int ExitInstance();
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CWinMIPS64App)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CWinMIPS64App)
+public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
@@ -35,8 +35,8 @@ public:
 
 	//{{AFX_MSG(CWinMIPS64App)
 	afx_msg void OnAppAbout();
-		// NOTE - the ClassWizard will add and remove member functions here.
-		//    DO NOT EDIT what you see in these blocks of generated code !
-	//}}AFX_MSGs
+	// NOTE - the ClassWizard will add and remove member functions here.
+	//    DO NOT EDIT what you see in these blocks of generated code !
+//}}AFX_MSGs
 	DECLARE_MESSAGE_MAP()
 };

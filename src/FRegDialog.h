@@ -5,12 +5,12 @@
 
 class CFRegDialog : public CDialog
 {
-// Construction
+	// Construction
 public:
 	CFRegDialog(CWnd* pParent = NULL);   // standard constructor
 
-// Dialog Data
-	//{{AFX_DATA(CFRegDialog)
+	// Dialog Data
+		//{{AFX_DATA(CFRegDialog)
 	enum { IDD = IDD_DOUBLE };
 	CString	m_freg;
 	CString	m_fname;
@@ -20,7 +20,7 @@ public:
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CFRegDialog)
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 

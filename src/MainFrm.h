@@ -6,16 +6,16 @@ class CMainFrame : public CMDIFrameWnd
 public:
 	CMainFrame();
 
-// Attributes
-public:
-	
-// Operations
+	// Attributes
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CMainFrame)
-	public:
+	// Operations
+public:
+
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CMainFrame)
+public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	//}}AFX_VIRTUAL
 
@@ -36,7 +36,7 @@ public:  // control bar embedded members
 	CStatusBar  m_wndStatusBar;
 	CToolBar    m_wndToolBar;
 
-// Generated message map functions
+	// Generated message map functions
 protected:
 	//{{AFX_MSG(CMainFrame)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

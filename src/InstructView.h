@@ -11,20 +11,20 @@ protected:
 	CInstructView();           // protected constructor used by dynamic creation
 	DECLARE_DYNCREATE(CInstructView)
 
-// Attributes
+	// Attributes
 public:
 	CWinMIPS64Doc* GetDocument();
 	unsigned int first;
 	unsigned int nlines;
 	CFont font;
 
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CInstructView)
-	protected:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CInstructView)
+protected:
 	virtual void OnDraw(CDC* pDC);      // overridden to draw this view
 	virtual void OnInitialUpdate();     // first time after construct
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint);
@@ -46,5 +46,7 @@ protected:
 
 #ifndef _DEBUG  // debug version in InstructView.cpp
 inline CWinMIPS64Doc* CInstructView::GetDocument()
-   { return (CWinMIPS64Doc*)m_pDocument; }
+{
+	return (CWinMIPS64Doc*)m_pDocument;
+}
 #endif

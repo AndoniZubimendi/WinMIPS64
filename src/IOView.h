@@ -13,26 +13,26 @@ protected:
 	CIOView();           // protected constructor used by dynamic creation
 	DECLARE_DYNCREATE(CIOView)
 	CSize 	m_ViewCharSize;
-	CFont*	m_pFont;
+	CFont* m_pFont;
 	CPen* m_pPen;
 	WORD32 nlines;
 	CString line;
 	WORD32 caretcount;
 
-// Attributes
+	// Attributes
 public:
 	CWinMIPS64Doc* GetDocument();
-// Operations
+	// Operations
 public:
-	CFont*	  GetFont();
-	CPen*	  GetPen();
+	CFont* GetFont();
+	CPen* GetPen();
 	CSize GetCharSize() const { return m_ViewCharSize; }
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CIOView)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CIOView)
+public:
 	virtual void OnPrepareDC(CDC* pDC, CPrintInfo* pInfo = NULL);
-	protected:
+protected:
 	virtual void OnDraw(CDC* pDC);      // overridden to draw this view
 	virtual void OnInitialUpdate();     // first time after construct
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint);
@@ -58,5 +58,7 @@ protected:
 
 #ifndef _DEBUG  // debug version in IOView.cpp
 inline CWinMIPS64Doc* CIOView::GetDocument()
-   { return (CWinMIPS64Doc*)m_pDocument; }
+{
+	return (CWinMIPS64Doc*)m_pDocument;
+}
 #endif

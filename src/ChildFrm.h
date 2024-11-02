@@ -8,16 +8,16 @@ class CChildFrame : public CMDIChildWnd
 public:
 	CChildFrame();
 
-// Attributes
+	// Attributes
 public:
 
-// Operations
+	// Operations
 public:
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CChildFrame)
-	public:
+	// Overrides
+		// ClassWizard generated virtual function overrides
+		//{{AFX_VIRTUAL(CChildFrame)
+public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual void ActivateFrame(int nCmdShow = -1);
 	//}}AFX_VIRTUAL
@@ -30,7 +30,7 @@ public:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-// Generated message map functions
+	// Generated message map functions
 protected:
 	//{{AFX_MSG(CChildFrame)
 		// NOTE - the ClassWizard will add and remove member functions here.
